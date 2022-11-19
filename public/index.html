@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SIT 725 Prac 1 by Michael Pigott</title>
-    <meta name="description" content="basic template for SIT 725 Prac 1" />
+    <title>SIT 725 Prac 3 by Michael Pigott</title>
+    <meta name="description" content="basic template for SIT 725 Prac 3" />
     <meta name="author" content="SitePoint" />
-    <meta property="og:title" content="SIT 725 Prac 1" />
+    <meta property="og:title" content="SIT 725 Prac 3" />
     <meta property="og:type" content="website" />
     <meta
       property="og:description"
-      content="basic template for SIT 725 Prac 1"
+      content="basic template for SIT 725 Prac 3"
     />
     <!--custom CSS-->
     <link rel="stylesheet" href="/css/styles.css" />
@@ -20,44 +20,98 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <!--Compiled and minified JavaScript -->
-    <script
-      async
+    <script async src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ <!--Get the google icons-->
+ <link href=https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+ 
+    <script async
+      
       src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
     ></script>
     <script async src="js/scripts.js"></script>
   </head>
-  <body class="indigo darken-4">
-    <header class="blue-grey lighten-4">
-      <div class="container">
-        <p>SIT725 Practical Project</p>
+  <body>
+    <nav>
+      <div class="nav-wrapper navbar-size">
+        <a href="#" class="brand-logo"><img class="user-image-size" src="images/user-image.png" /></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a target="_blank" href="https://www.linkedin.com/in/michael-j-pigott/">LinkedIn</a></li>
+        </ul>
       </div>
-    </header>
+    </nav>
+    <main class="main-body">
+      <div class=""container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <h1 id=""heading">SIT725 Week 3</h1>
+            <p class="flow-text">This is a demo application that tries to use a few components from materialize and through this practical we try to have some fun with Materialize and its components. </p>
+          </div>
+          <div class="col s12 center-align">
+            <img class="materialboxed materialboxed-image src="images/livedemo.png"/>
+            </div>
+            <div class="col s12 center-align">
+              <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click me</a>
+        
+      </div>
+      </div>
+      <div class="row" id="card-section">
+        <div class="col s4 center-align">
+          <div class="card medium">
+            <div class="card-image waves-effect waves-block waves-light"
+            <img class="activator" src="images/kitten.jpg"/>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Kitten<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">About this kitten</a></p>
+            </div>
+        
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Kitten<i class="material-icons right">close</i></span>
+          <p class="card-text">Hello There! I just wanted to say HI to you guys. See ya!</p>
+        </div>
+        
+</div>
+      </div>
+     <!-- Modal Structure -->
 
-    <div class="container">
-      <div class="card-panel white darken-4 black-text text-darken-2">
-        <h1>Welcome to SIT725!</h1>
-        <h2>Workshop two</h2>
-        <h3>What is JSON?</h3>
-        <p>JSON stands for JavaScript Object Notation.</p>
-        <p>JSON is a lightweight format for storing and transporting data.</p>
-        <p>JSON is often used when data is sent from a server to a web page.</p>
-        <p>JSON is "self-describing" and easy to understand</p>
-        <p>
-          <strong>Source:</strong>
-          <a href="https://www.w3schools.com/whatis/whatis_json.asp"
-            >W3 schools</a
-          >
-        </p>
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="row modal-content">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input
+            placeholder="Placeholder"
+            id="first_name"
+            type="text"
+            class="validate"
+          />
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate" />
+          <label for="last_name">Last Name</label>
+        </div>
       </div>
-    </div>
-
-    <footer class="blue-grey lighten-4">
-      <div class="container">
-        <p>
-          Styled using <a href="https://materializecss.com/">materialize.css</a>
-        </p>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" />
+          <label for="password">Password</label>
+        </div>
       </div>
-      <div class="container">© 2022 Copyright Text</div>
-    </footer>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" />
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 center-align">
+          <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</main>
   </body>
 </html>
