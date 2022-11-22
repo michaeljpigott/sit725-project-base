@@ -13,22 +13,20 @@
       content="basic template for SIT 725 Prac 3"
     />
     <!--custom CSS-->
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <!--Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <!--Compiled and minified JavaScript -->
-    <script async src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
  <!--Get the google icons-->
  <link href=https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
  
-    <script async
-      
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
     ></script>
-    <script async src="js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
   </head>
   <body>
     <nav>
@@ -46,8 +44,10 @@
             <h1 id=""heading">SIT725 Week 3</h1>
             <p class="flow-text">This is a demo application that tries to use a few components from materialize and through this practical we try to have some fun with Materialize and its components. </p>
           </div>
-          <div class="col s12 center-align">
-            <img class="materialboxed materialboxed-image src="images/livedemo.png"/>
+          <div class="col s12 center-align" style="margin-bottom: 20px;">
+            <img class="materialboxed materialboxed-image" style="margin:auto;" src="/images/dog-with-glasses.jpg"/>
+            <p>Photo by <a href="https://unsplash.com/@braydona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Braydon Anderson</a> on <a href="https://unsplash.com/s/photos/fun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </p>
             </div>
             <div class="col s12 center-align">
               <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click me</a>
@@ -57,17 +57,18 @@
       <div class="row" id="card-section">
         <div class="col s4 center-align">
           <div class="card medium">
-            <div class="card-image waves-effect waves-block waves-light"
-            <img class="activator" src="images/kitten.jpg"/>
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="/images/herbie.jpg"/>
             </div>
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Kitten<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">About this kitten</a></p>
+              <span class="card-title activator grey-text text-darken-4">Volkswagen Beetle<i class="material-icons right">more_vert</i></span>
+              <p><a href="https://unsplash.com/photos/N7RiDzfF2iw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this car photograph</a></p>
             </div>
         
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">Kitten<i class="material-icons right">close</i></span>
-          <p class="card-text">Hello There! I just wanted to say HI to you guys. See ya!</p>
+          <p class="card-text">Photo by <a href="https://unsplash.com/@danielcgold?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dan Gold</a> on <a href="https://unsplash.com/s/photos/car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          </p>
         </div>
         
 </div>
@@ -106,7 +107,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 center-align">
-          <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
+          <a class="waves-effect waves-light btn" id="formSubmit">Submit</a>
         </div>
       </div>
     </form>

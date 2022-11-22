@@ -1,28 +1,30 @@
 const cardList = [
   {
-    title: "Kitten 2",
+    title: "Lamborghini",
 
-    image: "images/kitten-2.jpg",
+    image: "/images/lamborghini.jpg",
 
-    link: "About Kitten 2",
+    link: `<a href="https://unsplash.com/photos/X16zXcbxU4U?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this Lamborghini photo</a>`,
 
-    desciption: "Demo desciption about kitten 2",
+    desciption: `Photo by <a href="https://unsplash.com/@dhivakrishna?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dhiva Krishna</a> on <a href="https://unsplash.com/s/photos/car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    `,
   },
 
   {
-    title: "Kitten 3",
+    title: "Tesla",
 
-    image: "images/kitten-3.jpg",
+    image: "/images/tesla.jpg",
 
-    link: "About Kitten 3",
+    link: `<a href="https://unsplash.com/photos/kPUQOsfThag?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this Tesla photo</a>`,
 
-    desciption: "Demo desciption about kitten 3",
+    desciption: `Photo by <a href="https://unsplash.com/@technick_inc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tech Nick</a> on <a href="https://unsplash.com/s/photos/tesla?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    `,
   },
 ];
 
-const clickMe = () => {
+/*const clickMe = () => {
   alert("Thanks for clicking me. Hope you have a nice day!");
-};
+};*/
 
 const submitForm = () => {
   let formData = {};
