@@ -1,14 +1,14 @@
 {
-  "name": "sit725-2022-t3-prac3",
+  "name": "sit725-2022-t3-prac4",
   "version": "1.0.0",
-  "description": "SIT725 Practicals",
+  "description": "SIT725 Practical Four",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michaeljpigott/sit725-2022-t3-prac3-a"
+    "url": "git+https://github.com/michaeljpigott/sit725-2022-t3-pract4"
   },
   "keywords": [
     "Express",
@@ -17,9 +17,9 @@
   "author": "Michael Pigott",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/michaeljpigott/sit725-2022-t3-prac3-a/issues"
+    "url": "https://github.com/michaeljpigott/sit725-2022-t3-pract4/issues"
   },
-  "homepage": "https://github.com/michaeljpigott/sit725-2022-t3-prac2#readme",
+  "homepage": "https://github.com/michaeljpigott/sit725-2022-t3-pract4#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
