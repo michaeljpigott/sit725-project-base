@@ -1,4 +1,4 @@
-const cardList = [
+/*const cardList = [
   {
     title: "Lamborghini",
 
@@ -20,11 +20,16 @@ const cardList = [
     desciption: `Photo by <a href="https://unsplash.com/@technick_inc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tech Nick</a> on <a href="https://unsplash.com/s/photos/tesla?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
     `,
   },
-];
+];*/
 
-/*const clickMe = () => {
-  alert("Thanks for clicking me. Hope you have a nice day!");
-};*/
+//function to send get request to server to receive card data
+const getProjects = () => {
+  $.get("/api/projects", (response) => {
+    if (response.statusCode == 200) {
+      addCards(response.data); //addCards function uses response data
+    }
+  });
+};
 
 const submitForm = () => {
   let formData = {};
@@ -40,6 +45,7 @@ const submitForm = () => {
   console.log("Form Data Submitted: ", formData);
 };
 
+//function to add cards to index.html
 const addCards = (items) => {
   items.forEach((item) => {
     let itemToAppend =
@@ -65,15 +71,12 @@ const addCards = (items) => {
     $("#card-section").append(itemToAppend);
   });
 };
-
+//call the functions once the document has been loaded
 $(document).ready(function () {
   $(".materialboxed").materialbox();
-
   $("#formSubmit").click(() => {
     submitForm();
   });
-
-  addCards(cardList);
-
+  getProjects(); //call the getProjects function to request the data from the server
   $(".modal").modal();
 });
