@@ -2,23 +2,30 @@
   text-transform: unset !important;
 }
 .navbar-size {
-    width: 95%;
-    margin: 0 auto;
+  width: 95%;
+  margin: 0 auto;
 }
 .user-image-size {
-    height: 56px;
-    margin: 4px 0;
+  height: 56px;
+  margin: 4px 0;
+}
+body {
+  background-color: #f28487;
 }
 .main-body {
-    background-color: #F28487;
-    color: white;
-    height: calc(100vh - 64px);
+  background-color: #f28487;
+  color: white;
+  height: calc(100vh - 64px);
+}
+
+.card-text {
+  color: black;
 }
 .materialboxed-image {
-    margin: 0 auto;
-    height: 400px;
+  margin: 0 auto;
+  height: 400px;
 }
 .click-me-button {
-    background-color: #EE6E73;
-    margin-top: 50px;
+  background-color: #ee6e73;
+  margin-top: 50px;
 }

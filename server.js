@@ -27,7 +27,7 @@ const createColllection = (collectionName) => {
     }
   });
 };
-
+/*
 const cardList = [
   {
     title: "Lamborghini",
@@ -44,7 +44,7 @@ const cardList = [
     `,
   },
 ];
-
+*/
 app.post("/api/projects", (req, res) => {
   console.log("New Project added", req.body);
   var newProject = req.body;
@@ -76,6 +76,11 @@ app.get("/api/projects", (req, res) => {
     }
   });
 });
+
+// get project...
+const getProjects = (callback) => {
+  projectCollection.find({}).toArray(callback);
+};
 
 var port = process.env.port || 3000;
 

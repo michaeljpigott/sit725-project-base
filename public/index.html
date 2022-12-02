@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<html lang="en"><head>
+<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SIT 725 Prac 4 by Michael Pigott</title>
     <meta name="description" content="basic template for SIT 725 Prac 3" />
@@ -23,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
  <!--Get the google icons-->
  <link href=https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
- 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
     ></script>
     <script src="/js/scripts.js"></script>
@@ -47,73 +46,68 @@
           <div class="col s12 center-align" style="margin-bottom: 20px;">
             <img class="materialboxed materialboxed-image" style="margin:auto;" src="/images/Mustang_GT.jpg"/>
             <p>Photo by <a href="https://unsplash.com/@joeyabanks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joey Banks</a> on <a href="https://unsplash.com/s/photos/car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
             </p>
             </div>
             <div class="col s12 center-align">
               <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click me</a>
-        
+
       </div>
       </div>
       <div class="row" id="card-section">
         <div class="col s4 center-align">
           <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="/images/herbie.jpg"/>
+           <img class="activator" src="/images/herbie.jpg"/>
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">Volkswagen Beetle<i class="material-icons right">more_vert</i></span>
               <p><a href="https://unsplash.com/photos/N7RiDzfF2iw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this car photograph</a></p>
             </div>
-        
+
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">Volkswagen Beetle<i class="material-icons right">close</i></span>
           <p class="card-text">Photo by <a href="https://unsplash.com/@danielcgold?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dan Gold</a> on <a href="https://unsplash.com/s/photos/car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
           </p>
         </div>
-        
 </div>
       </div>
      <!-- Modal Structure -->
-
-<div id="modal1" class="modal modal-fixed-footer">
-  <div class="row modal-content">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input
-            placeholder="Placeholder"
-            id="first_name"
-            type="text"
-            class="validate"
-          />
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate" />
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" />
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" />
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 center-align">
-          <a class="waves-effect waves-light btn modal-close" id="formSubmit">Submit</a>
-        </div>
-      </div>
-    </form>
-  </div>
+     <div id="modal1" class="modal modal-fixed-footer">
+             <div class="row modal-content">
+               <form class="col s12">
+                 <div class="row">
+                   <div class="input-field col s6">
+                     <input placeholder="Enter the title of the car here" id="title" type="text" class="validate">
+                     <label for="title">Title</label>
+                   </div>
+                   <div class="input-field col s6">
+      <input placeholder="Enter the file path for the image here" id="image" type="text" class="validate">
+                     <label for="image">Image</label>
+                   </div>
+                 </div>
+                 <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Enter the link for this car image. Enclose with a grave accent" id="link" type="text" class="validate">
+<label for="link">Link</label>
 </div>
+</div>
+<div class="row">
+<div class="input-field col s12">
+ <input placeholder="Enter information about wno took the photo of the car" id="description" type="text" class="validate">
+   <label for="description">Description</label>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="input-field col s12 center-align">
+                     <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
+                   </div>
+                 </div>
+               </form>
+             </div>
+           </div>
+
+
 </main>
   </body>
 </html>
