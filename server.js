@@ -27,24 +27,7 @@ const createColllection = (collectionName) => {
     }
   });
 };
-/*
-const cardList = [
-  {
-    title: "Lamborghini",
-    image: "/images/lamborghini.jpg",
-    link: `<a href="https://unsplash.com/photos/X16zXcbxU4U?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this Lamborghini photo</a>`,
-    desciption: `Photo by <a href="https://unsplash.com/@dhivakrishna?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dhiva Krishna</a> on <a href="https://unsplash.com/s/photos/car?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-    `,
-  },
-  {
-    title: "Tesla",
-    image: "/images/tesla.jpg",
-    link: `<a href="https://unsplash.com/photos/kPUQOsfThag?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink">About this Tesla photo</a>`,
-    desciption: `Photo by <a href="https://unsplash.com/@technick_inc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tech Nick</a> on <a href="https://unsplash.com/s/photos/tesla?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-    `,
-  },
-];
-*/
+
 app.post("/api/projects", (req, res) => {
   console.log("New Project added", req.body);
   var newProject = req.body;
