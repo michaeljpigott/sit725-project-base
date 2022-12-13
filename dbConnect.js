@@ -14,3 +14,5 @@ client.connect((err, db) => {
     process.exit(1);
   }
 });
+
+module.exports = client;
