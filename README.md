@@ -1,4 +1,3 @@
-# Practical-Four-Tri3
+# Practical-Five-Tri3
 
-# This is the fourth practical of SIT725.
-
+# This is the fifth practical of SIT725. It focuses on the MVC model. 
