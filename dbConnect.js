@@ -6,6 +6,7 @@ const uri =
   "mongodb+srv://mpigott:Tue29112022@cluster0.5vufhgp.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
+
 client.connect((err, db) => {
   if (!err) {
     console.log("MongoDB Connected");
