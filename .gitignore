@@ -1,2 +1,3 @@
-#Ignore files related to API keys
-env.js
+# dotenv environment variables file
+.env
+.env.test
