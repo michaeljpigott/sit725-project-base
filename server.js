@@ -24,7 +24,20 @@ app.get("/addTwoNumbers/:firstNumber/:secondNumber", function (req, res, next) {
   }
 });
 
-
+app.get("/name/:firstName/:surname", function (req, res, next) {
+  // change first letter of surname to uppercase. Source info is from here: https://flexiple.com/javascript/javascript-capitalize-first-letter/
+  firstName =
+    req.params.firstName.charAt(0).toUpperCase() +
+    req.params.firstName.slice(1);
+  surname =
+    req.params.surname.charAt(0).toUpperCase() + req.params.surname.slice(1);
+  let fullName = firstName + " " + surname || null;
+  if (fullName == null) {
+    res.json({ fullName: fullName, statusCode: 400 }).status(400);
+  } else {
+    res.json({ fullName: fullName, statusCode: 200 }).status(200);
+  }
+});
 
 app.listen(port, () => {
   console.log("App listening to: " + port);

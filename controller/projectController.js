@@ -1,4 +1,4 @@
-//the controller deals with business logic
+//the controller deals with user interaction. 
 
 let projectModel = require("../models/project"); //links to the project.js file in the models file with this one.
 

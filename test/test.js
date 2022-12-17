@@ -1,5 +1,4 @@
-let express = require("express");
-var expect = require("chai").expect;
+var expect = require("chai").expect; //chai is an assertion library https://www.youtube.com/watch?v=sPyb6QlgBaU
 var request = require("request");
 
 describe("Add Two Numbers", function () {
@@ -27,6 +26,7 @@ describe("Add Two Numbers", function () {
   it("returns the result equal to 8", function (done) {
     request(url, function (error, response, body) {
       body = JSON.parse(body);
+      console.log(body.result);
       expect(body.result).to.equal(8);
       done();
     });
@@ -42,7 +42,7 @@ describe("Add Two Numbers", function () {
 
 describe("Add Two strings", function () {
   var url = "http://localhost:3000/addTwoNumbers/a/b";
-  it("should not returns status 200", function (done) {
+  it("should not return status 200", function (done) {
     request(url, function (error, response, body) {
       expect(response.statusCode).to.equal(200);
       done();
@@ -59,6 +59,26 @@ describe("Add Two strings", function () {
     request(url, function (error, response, body) {
       body = JSON.parse(body);
       expect(body.result).to.be.a("null");
+      done();
+    });
+  });
+});
+
+//create tests to test name API
+
+describe("Name", function () {
+  var url = "http://localhost:3000/name/michael/pigott";
+  it("return status 200", function (done) {
+    request(url, function (error, response, body) {
+      expect(response.statusCode).to.equal(200);
+      done();
+    });
+  });
+  it("capitalises the first letter of the first name", function (done) {
+    request(url, function (error, response, body) {
+      body = JSON.parse(body);
+      console.log(body.fullName);
+      expect(body.fullName).to.equal("Michael Pigott");
       done();
     });
   });
