@@ -4,12 +4,24 @@ var cors = require("cors");
 var port = process.env.port || 3000;
 let client = require("./dbConnect");
 let projectRoutes = require("./routes/projectRoutes");
+let io = require("socket.io")(http); //connect the socket.io library to the app
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use("/api/projects", projectRoutes);
+
+//listener to look out for when a user connects to the socket
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+  setInterval(() => {
+    socket.emit("number", parseInt(Math.random() * 10));
+  }, 1000);
+});
 
 //api for testing
 
