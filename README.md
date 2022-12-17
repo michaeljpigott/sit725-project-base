@@ -1,3 +1,3 @@
-# Practical-Six-Tri3
+# Practical-Seven-Tri3
 
-# This is the sixth practical of SIT725. It focuses creating automated tests with the packages mocha and chai.
+# This is the seventh practical of SIT725. It focuses on working with sockets. Sockets are a single connection between a client and a server that allows both the client and the server to send and receive data at the same time.
