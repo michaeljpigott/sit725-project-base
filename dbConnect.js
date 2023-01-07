@@ -1,13 +1,14 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const MongoClient = require("mongodb").MongoClient; //connects MongoDb with the project
 
-//add database connection
+//add database connection (need to add connection information to .env file)
 
-/*const uri =
-  "mongodb+srv://name:password@cluster0.5vufhgp.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });*/
+//const database =
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri, { useNewUrlParser: true });
 
-/*client.connect((err, db) => {
+client.connect((err, db) => {
   if (!err) {
     console.log("MongoDB Connected");
   } else {
@@ -16,4 +17,4 @@ const client = new MongoClient(uri, { useNewUrlParser: true });*/
   }
 });
 
-module.exports = client;*/
+module.exports = client;
