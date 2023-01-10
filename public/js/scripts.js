@@ -1,4 +1,4 @@
-//function for location autocomplete imput field
+//function for location autocomplete input field
 
 $(document).ready(function () {
   let councilData = {
