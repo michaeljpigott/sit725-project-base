@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Location preferences</title>
+    <meta
+      name="description"
+      content="Location preferences - Can U Recycle it"
+    />
+    <meta name="author" content="SitePoint" />
+    <meta
+      property="og:title"
+      content="Location preferences - Can U Recycle it"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Location preferences - Can U Recycle it"
+    />
+    <!--custom CSS-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!--Compiled and minified JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!--Get the google icons-->
+    <link href=https://fonts.googleapis.com/icon?family=Material+Icons
+    rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Location preferences</h1>
+        <p>Set your favourite location on this page.</p>
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">my_location</i>
+                <input type="text" id="suburb" class="autocomplete" />
+                <label for="autocomplete-input">Select your location</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6" id="suburb-info">
+            <p>
+              Your suburb,
+              <strong><span id="suburb-output">suburb-output</span></strong
+              >, belongs to the
+              <strong><span id="council-name">council-name</span></strong
+              >.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <button
+              class="waves-effect waves-light btn"
+              onclick="getSuburbValue()"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="/js/scripts.js"></script>
+</html>
