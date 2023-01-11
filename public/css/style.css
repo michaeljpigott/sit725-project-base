@@ -1,3 +1,32 @@
 #suburb-info {
   display: none;
 }
+
+/* history card styles */
+.history-item .item-image {
+  max-height: 60%;
+}
+
+.history-item .item-image img {
+  width: 100%;
+}
+
+.history-item p {
+  margin: 0px;
+}
+
+.history-item .item-type {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.history-item .item-details .col {
+  padding-left: 0px;
+}
+
+.history-item .item-result-symbol.check {
+  color: green;
+}
+.history-item .item-result-symbol.cross {
+  color: red;
+}
