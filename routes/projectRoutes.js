@@ -3,8 +3,7 @@ var router = express.Router();
 let controller = require("../controller");
 let rootDir = process.cwd(); // the root directory of the project on your local computer
 
-
-router.get("")
+router.get("");
 // this renders the history.html file on the /history route
 // this will get all the user items to display on the page
 router.get("/history", (req, res) => {
@@ -28,5 +27,11 @@ router.get("/location", (req, res) => {
 // router.delete("/history", (req, res) => {
 //   controller.projectController.deleteItem(req, res);
 // });
+
+//Create the API for suburbs
+
+router.get("/", (req, res) => {
+  controller.locationController.retrieveSuburbs(req, res);
+});
 
 module.exports = router;
