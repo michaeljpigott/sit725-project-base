@@ -1,3 +1,49 @@
+/* homepage */
+main#homepage {
+  background-color: #f8f5b0;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+main#homepage h1 {
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+  margin: 50px auto 0;
+}
+
+main#homepage p {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+}
+
+main#homepage img {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+main#homepage .button {
+  display: block;
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 50px;
+}
+
+main#homepage .button#login-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+main#homepage .button#sign-up-button {
+  background-color: #cfd8dc;
+  color: #000000;
+}
+
 #suburb-info {
   display: none;
 }
