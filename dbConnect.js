@@ -5,11 +5,8 @@ const MongoClient = require("mongodb").MongoClient; //connects MongoDb with the 
 //add database connection (need to add connection information to .env file)
 
 //const database =
-/*const uri =
-  "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority";*/
-
 const uri =
-  "mongodb+srv://can_u_recycle_it:2XQlTRWacSwDpbsQ@cluster0.bdfmzyy.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 

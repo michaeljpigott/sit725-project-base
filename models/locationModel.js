@@ -3,10 +3,8 @@ let client = require("../dbConnect");
 
 // connects to database collection called Melb_City_Councils (ie a database with Melbourne suburbs and their LGAs)
 setTimeout(() => {
-  melbSuburbs = client.db().collection("Melb_City_Councils");
+  melbSuburbs = client.db("CanURecycleIt").collection("suburbs");
 }, 2000);
-
-
 
 // this will create an array with the information about Melbourne suburbs and LGAs
 const melbData = (callback) => {
