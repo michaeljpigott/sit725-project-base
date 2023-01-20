@@ -11,3 +11,12 @@ describe("Location page", function () {
     });
   });
 });
+describe("Suburbs API", function () {
+  var url = "http://localhost:3000/api/suburbs";
+  it("returns status 200 to check if location page works", function (done) {
+    request(url, function (error, response, body) {
+      expect(response.statusCode).to.equal(200);
+      done();
+    });
+  });
+});

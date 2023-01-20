@@ -40,6 +40,7 @@ $(document).ready(function () {
     });
   }
 
+  //the function that gets a copy of the the data from /api/suburbs and runs the findLGA() function
   function getSuburbsAndLGAs(suburbOutput) {
     $.get("api/suburbs", (response) => {
       if (response.statusCode == 200) {
@@ -62,15 +63,6 @@ $(document).ready(function () {
         document.getElementById("council-name").innerText = lgaName;
       }
     }
-
-    // for (let i = 0; i < response.length; i++) {
-
-    /*if (suburbOnly === response.suburb) {
-        let lgaText = response.LGA;
-        console.log("lgaText: " + lgaText);
-        document.getElementById("council-name").innerText = lgaText;
-      } else console.log("loop failed");*/
-    //}
   }
 
   getSuburbs();
