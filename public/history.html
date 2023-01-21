@@ -18,9 +18,30 @@
     />
   </head>
   <body>
-    <main>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <h1 class="">History</h1>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+    <main class="with-nav">
       <div class="container">
-        <h1 class="center-align">My History</h1>
         <div class="history-section">
           <div class="row history-item">
             <div class="col s4 center-align">
@@ -72,9 +93,254 @@
               </div>
             </div>
           </div>
+          <div class="row history-item">
+            <div class="col s4 center-align">
+              <div class="item-image">
+                <img class="" src="images/herbie.jpg" />
+              </div>
+            </div>
+            <div class="col s8">
+              <div class="item-details">
+                <div class="col s6">
+                  <p class="item-type">Trash</p>
+                </div>
+                <div class="col s6 right-align">
+                  <p class="item-upload-date">11/01/2023</p>
+                </div>
+                <div class="col s10">
+                  <p class="item-result">Item cannot be recycled</p>
+                </div>
+                <div class="col s2 right-align">
+                  <p class="item-result-symbol cross">
+                    <i class="material-icons">close</i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row history-item">
+            <div class="col s4 center-align">
+              <div class="item-image">
+                <img class="" src="images/herbie.jpg" />
+              </div>
+            </div>
+            <div class="col s8">
+              <div class="item-details">
+                <div class="col s6">
+                  <p class="item-type">Trash</p>
+                </div>
+                <div class="col s6 right-align">
+                  <p class="item-upload-date">11/01/2023</p>
+                </div>
+                <div class="col s10">
+                  <p class="item-result">Item cannot be recycled</p>
+                </div>
+                <div class="col s2 right-align">
+                  <p class="item-result-symbol cross">
+                    <i class="material-icons">close</i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row history-item">
+              <div class="col s4 center-align">
+                <div class="item-image">
+                  <img class="" src="images/herbie.jpg" />
+                </div>
+              </div>
+              <div class="col s8">
+                <div class="item-details">
+                  <div class="col s6">
+                    <p class="item-type">Trash</p>
+                  </div>
+                  <div class="col s6 right-align">
+                    <p class="item-upload-date">11/01/2023</p>
+                  </div>
+                  <div class="col s10">
+                    <p class="item-result">Item cannot be recycled</p>
+                  </div>
+                  <div class="col s2 right-align">
+                    <p class="item-result-symbol cross">
+                      <i class="material-icons">close</i>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
         </div>
       </div>
     </main>
+
+    <div class="bottom-nav">
+      <div>
+        <a href="#"><i class="material-icons">home</i></a>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">search</i></a>
+      </div>
+      <div class="middle-bottom">
+        <div>
+          <a href="#"><i class="material-icons">upload</i></a>
+        </div>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">history</i></a>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">person</i></a>
+      </div>
+    </div>
     <!--Compiled and minified JavaScript -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -87,5 +353,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/history.js"></script>
+    <script src="/js/navbar.js"></script>
   </body>
 </html>
