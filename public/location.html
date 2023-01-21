@@ -3,20 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Location preferences</title>
-    <meta
-      name="description"
-      content="Location preferences - Can U Recycle it"
-    />
+    <title>Location preference - Can U Recycle it</title>
+    <meta name="description" content="Location preference - Can U Recycle it" />
     <meta name="author" content="SitePoint" />
     <meta
       property="og:title"
-      content="Location preferences - Can U Recycle it"
+      content="Location preference - Can U Recycle it"
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:description"
-      content="Location preferences - Can U Recycle it"
+      content="Location preference - Can U Recycle it"
     />
     <!--custom CSS-->
     <link rel="stylesheet" href="/css/style.css" />
@@ -25,30 +22,41 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-
-    <!--Compiled and minified JavaScript -->
-
-    <!--Get the google icons-->
-    <link href=https://fonts.googleapis.com/icon?family=Material+Icons
-    rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
+
   <body>
-    <main>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <h1 class="">Location preference</h1>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+    <main class="with-nav">
       <div class="container">
-        <h1>Location preferences</h1>
         <p>Set your favourite location on this page.</p>
-        <div class="row">
+        <div class="row selectSuburb">
           <div class="col s12">
-            <div class="row">
+            <div class="row selectSuburb">
               <div class="input-field col s12">
                 <i class="material-icons prefix">my_location</i>
                 <input type="text" id="suburb" class="autocomplete" />
-                <label for="autocomplete-input"
-                  >Select your location by entering your suburb name or
-                  postcode</label
-                >
+                <label for="suburb">Enter suburb name or postcode</label>
               </div>
             </div>
           </div>
@@ -76,12 +84,37 @@
         </div>
       </div>
     </main>
-  </body>
+    <div class="bottom-nav">
+      <div>
+        <a href="#"><i class="material-icons">home</i></a>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">search</i></a>
+      </div>
+      <div class="middle-bottom">
+        <div>
+          <a href="#"><i class="material-icons">upload</i></a>
+        </div>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">history</i></a>
+      </div>
+      <div>
+        <a href="#"><i class="material-icons">person</i></a>
+      </div>
+    </div>
+    <!--Compiled and minified JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!--Get the google icons-->
+    <link href=https://fonts.googleapis.com/icon?family=Material+Icons
+    rel="stylesheet">
 
-  <script type="module" src="/js/scripts.js"></script>
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-  ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="/js/scripts.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
 </html>

@@ -115,6 +115,11 @@ main#homepage .button#sign-up-button {
   color: #000000;
 }
 
+/* Reduces the size of the bottom margin on the location page */
+.selectSuburb {
+  margin-bottom: 0px !important;
+}
+/* Hides the suburb information before it is selected on the location page */
 #suburb-info {
   display: none;
 }
