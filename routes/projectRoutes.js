@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 let controller = require("../controller");
+var User = require('../models/user');
 
 let rootDir = process.cwd(); // the root directory of the project on your local computer
 
@@ -35,11 +36,32 @@ router.get("/", (req, res) => {
   controller.locationController.retrieveSuburbs(req, res);
 });
 
+//Uploads
+
 router.get("/upload", (req, res) => {
   let fileLocation = rootDir + "/public/upload.html"; // creates absolute path for html file
   res.sendFile(fileLocation);
 });
 
 router.post("/upload", controller.uploadController.uploadFiles);
+
+//User data
+
+router.get("/register", (req, res) => {
+  let fileLocation = rootDir + "/public/register.html"; // creates absolute path for html file
+  res.sendFile(fileLocation);
+});
+
+router.get("/login", (req, res) => {
+  let fileLocation = rootDir + "/public/login.html"; // creates absolute path for html file
+  res.sendFile(fileLocation);
+});
+
+router.get("/change-password", (req, res) => {
+  let fileLocation = rootDir + "/public/change-password.html"; // creates absolute path for html file
+  res.sendFile(fileLocation);
+});
+
+
 
 module.exports = router;  
