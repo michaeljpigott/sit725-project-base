@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Can U Recycle it</title>
+    <meta name="description" content="Can U Recycle it" />
+    <meta name="author" content="SitePoint" />
+    <meta property="og:title" content="Can U Recycle it" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Can U Recycle it"
+    />
+    <!--custom CSS-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!--Compiled and minified JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!--Get the google icons-->
+    <link href=https://fonts.googleapis.com/icon?family=Material+Icons
+    rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/js/upload.js"></script>
+
+
+  </head>
+    <body>
+      <main>
+        <div class="container">
+        <h3>Upload your photo.</h3></main>
+          <form class="mt-4"
+          action="/upload"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <input
+              type="file"
+              name="file"
+              id="input-files"
+              class="form-control-file border"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      <div class="preview-images"></div>
+
+      {% if prediction %}
+	    <h4> Your Prediction   : <i> {{prediction}} </i></h4>
+	    {% endif %}
+
+      </div>
+    </body>
+</html>

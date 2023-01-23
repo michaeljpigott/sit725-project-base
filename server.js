@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(projectRoutes);
-app.use("/api/suburbs", projectRoutes);
+app.use("/api/suburbs", projectRoutes); /// might be an issue
 
 app.listen(port, () => {
-  console.log("App listening to: " + port);
+  console.log("App listening to http://localhost:"+port+'/upload')
 });
