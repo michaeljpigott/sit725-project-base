@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 let controller = require("../controller");
+
 let rootDir = process.cwd(); // the root directory of the project on your local computer
 
 router.get("");
@@ -34,4 +35,11 @@ router.get("/", (req, res) => {
   controller.locationController.retrieveSuburbs(req, res);
 });
 
-module.exports = router;
+router.get("/upload", (req, res) => {
+  let fileLocation = rootDir + "/public/upload.html"; // creates absolute path for html file
+  res.sendFile(fileLocation);
+});
+
+router.post("/upload", controller.uploadController.uploadFiles);
+
+module.exports = router;  
