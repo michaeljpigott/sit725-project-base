@@ -5,7 +5,7 @@ var port = process.env.port || 3000;
 let client = require("./dbConnect");
 let projectRoutes = require("./routes/projectRoutes");
 
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -21,18 +21,21 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 //code to move to MVC model
+
+//
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
 mongoose.connect('mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	//useCreateIndex: true (no longer used)
+	useUnifiedTopology: true
 })
 
 //const app = express()
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
 
+
+//create function with errors and move to userController and app.post goes to routes and calls on 
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
 

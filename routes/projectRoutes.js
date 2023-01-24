@@ -62,6 +62,8 @@ router.get("/change-password", (req, res) => {
   res.sendFile(fileLocation);
 });
 
+//add links to post in controller 
+
 
 
 module.exports = router;  
