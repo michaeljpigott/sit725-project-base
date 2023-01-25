@@ -12,6 +12,14 @@ app.use(cors());
 app.use(projectRoutes);
 app.use("/api/suburbs", projectRoutes); /// might be an issue
 
+const mongoose = require('mongoose')
+const User = require('./models/user')
+
+mongoose.connect('mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+})
+
 app.listen(port, () => {
-  console.log("App listening to http://localhost:"+port+'/upload')
+  console.log("App listening to http://localhost:"+port)
 });
