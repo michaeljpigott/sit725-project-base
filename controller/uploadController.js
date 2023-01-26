@@ -1,7 +1,19 @@
 const upload = require("../models/uploadModel");
+const tf = require('@tensorflow/tfjs');
+require('@tensorflow/tfjs-node');
+//const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
+//const prediction = model.predict(example);
+
+
+// let predict = function(){
+//   console.log("predict funtion works")
+//   const result = "dog"
+//   return result
+// }
 
 const uploadFiles = async (req, res) => {
     try {
+      const prediction = predict();
       await upload(req, res);
       console.log(req.file);
   
