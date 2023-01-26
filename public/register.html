@@ -1,47 +1,66 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<h1>Registration</h1>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Registration</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body style="background-color: #f6f294">
+	<!-- <h1>Registration</h1>
+	<form id="reg-form">
+		<input type="text" autocomplete="off" id="username" placeholder="Username" />
+		<input type="password" autocomplete="off" id="password" placeholder="Password" />
+		<input type="submit" value="Submit Form" />
+	</form> -->
+
+
+	<div class="form-style-5">
 		<form id="reg-form">
-			<input type="text" autocomplete="off" id="username" placeholder="Username" />
-			<input type="password" autocomplete="off" id="password" placeholder="Password" />
-			<input type="submit" value="Submit Form" />
+			<fieldset>
+				<legend><span class="number">1</span> User Registration</legend>
+				<input type="text" autocomplete="off" id="username" placeholder="Username">
+				<input type="password" autocomplete="off" id="password" placeholder="Password">
+			</fieldset>
+			<input type="submit" value="Register" />
+			<span>Have an Account? </span><a href="/login.html">Login</a>
 		</form>
+	</div>
 
-		<script>
-			const form = document.getElementById('reg-form')
-			form.addEventListener('submit', registerUser)
+	<script>
+		const form = document.getElementById('reg-form')
+		form.addEventListener('submit', registerUser)
 
-			async function registerUser(event) {
-				event.preventDefault()
-				const username = document.getElementById('username').value
-				const password = document.getElementById('password').value
+		async function registerUser(event) {
+			event.preventDefault()
+			const username = document.getElementById('username').value
+			const password = document.getElementById('password').value
 
-				const result = await fetch('/api/register', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						username,
-						password
-					})
-				}).then((res) => res.json())
+			const result = await fetch('/api/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					username,
+					password
+				})
+			}).then((res) => res.json())
 
-				if (result.status === 'ok') {
-					// everythign went fine
-					alert('Success')
-				} else {
-					alert(result.error)
-				}
+			if (result.status === 'ok') {
+				// everythign went fine
+				alert('Success')
+			} else {
+				alert(result.error)
 			}
-		</script>
-	</body>
+		}
+	</script>
+</body>
+
 </html>
