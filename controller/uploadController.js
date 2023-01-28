@@ -1,6 +1,4 @@
 const upload = require("../models/uploadModel");
-let client = require("../dbConnect");
-const GridFSBucket = require("mongodb").GridFSBucket;
 
 const uploadFiles = async (req, res) => {
   try {
