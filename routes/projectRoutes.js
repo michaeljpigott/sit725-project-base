@@ -17,16 +17,17 @@ router.get("");
 // this renders the history.html file on the /history route
 // this will get all the user items to display on the page
 router.get("/history", (req, res) => {
-  //   controller.projectController.retrieveItems(req, res);
-  let fileLocation = rootDir + "/public/history.html"; // creates absolute path for html file
-  res.sendFile(fileLocation);
+	//   controller.projectController.retrieveItems(req, res);
+	let fileLocation = rootDir + "/public/history.html"; // creates absolute path for html file
+	res.sendFile(fileLocation);
 });
 
 // this renders the location.html file on the /location route
 router.get("/location", (req, res) => {
-  let fileLocation = rootDir + "/public/location.html"; // creates absolute path for html file
-  res.sendFile(fileLocation);
+	let fileLocation = rootDir + "/public/location.html"; // creates absolute path for html file
+	res.sendFile(fileLocation);
 });
+
 
 // this should save a new item to user history
 // router.post("/history", (req, res) => {
@@ -41,19 +42,24 @@ router.get("/location", (req, res) => {
 //Create the API for suburbs
 
 router.get("/", (req, res) => {
-  controller.locationController.retrieveSuburbs(req, res);
+	controller.locationController.retrieveSuburbs(req, res);
 });
 
 //Uploads
 
 router.get("/upload", (req, res) => {
-  let fileLocation = rootDir + "/public/upload.html"; // creates absolute path for html file
-  res.sendFile(fileLocation);
+	let fileLocation = rootDir + "/public/upload.html"; // creates absolute path for html file
+	res.sendFile(fileLocation);
 });
 
 router.post("/upload", controller.uploadController.uploadFiles);
 
 //User data - login, registration and change password functionality
+
+router.get("/profile", (req, res) => {
+	let fileLocation = rootDir + "/public/profile.html"; // creates absolute path for html file
+	res.sendFile(fileLocation);
+});
 
 router.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
