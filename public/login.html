@@ -29,7 +29,7 @@
 				<input type="text" autocomplete="off" id="username" placeholder="Username">
 				<input type="password" autocomplete="off" id="password" placeholder="Password">
 			</fieldset>
-			<input type="submit" value="Login" />
+			<input type="submit" value="Login" class="submit-btn" onclick="login(event)"/>
 			<span>Don't have an Account? </span><a href="/register.html">Register</a>
 		</form>
 	</div>
@@ -60,6 +60,7 @@
 				// everythign went fine
 				console.log('Got the token: ', result.data)
 				localStorage.setItem('token', result.data)
+				window.location.assign("profile.html")
 				alert('Success')
 			} else {
 				alert(result.error)

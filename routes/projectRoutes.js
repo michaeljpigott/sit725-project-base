@@ -168,4 +168,9 @@ router.get('/register', function (req, res, next) {
 	res.render("register.html");
 });
 
+//Create User Profile
+
+
+//router.post("/profile", controller.userController.createUser);
+
 module.exports = router;  
