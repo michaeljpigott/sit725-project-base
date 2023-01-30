@@ -6,7 +6,7 @@ const MongoClient = require("mongodb").MongoClient; //connects MongoDb with the 
 
 //const database =
 const uri =
-  "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/CanURecycleIt?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
