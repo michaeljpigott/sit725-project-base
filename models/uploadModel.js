@@ -31,13 +31,23 @@ var storage = new GridFsStorage({
 
 const retrieveFiles = async () => {
   const images = client.db("test").collection("photos.files").find({});
-
+  const predictionRecords = client.db("test").collection("Uploads").find({});
   let fileInfo = [];
+
   await images.forEach((doc) => {
     fileInfo.push({
       name: doc.filename,
       url: "http://localhost:3000/images/" + doc.filename,
       date: doc.uploadDate,
+      predictionText: "unknown",
+    });
+  });
+
+  await predictionRecords.forEach((record) => {
+    fileInfo.forEach((file) => {
+      if (file.name == record.filename) {
+        file.predictionText = record.prediction;
+      }
     });
   });
 

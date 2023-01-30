@@ -8,8 +8,8 @@ const getImages = () => {
 
 const addImages = (data) => {
   data.forEach((image) => {
-    const imageType = getImageType(image);
-    const recyclable = isRecyclable(imageType);
+    const imagePrediction = isRecyclable(image.predictionText);
+    console.log(image.predictionText);
 
     $(".history-section").append(
       `<div class="row history-item">
@@ -21,19 +21,23 @@ const addImages = (data) => {
             <div class="col s8">
               <div class="item-details">
                 <div class="col s6">
-                  <p class="item-type">${imageType}</p>
+                  <p class="item-type">${imagePrediction.type}</p>
                 </div>
                 <div class="col s6 right-align">
                   <p class="item-upload-date">${formatDate(image.date)}</p>
                 </div>
                 <div class="col s10">
                   <p class="item-result">Item ${resultText(
-                    recyclable
+                    imagePrediction.recyclable
                   )} be recycled</p>
                 </div>
                 <div class="col s2 right-align">
-                  <p class="item-result-symbol ${resultSymbol(recyclable)}">
-                    <i class="material-icons">${resultSymbol(recyclable)}</i>
+                  <p class="item-result-symbol ${resultSymbol(
+                    imagePrediction.recyclable
+                  )}">
+                    <i class="material-icons">${resultSymbol(
+                      imagePrediction.recyclable
+                    )}</i>
                   </p>
                 </div>
               </div>
@@ -41,16 +45,6 @@ const addImages = (data) => {
           </div>`
     );
   });
-};
-
-const getImageType = (image) => {
-  let itemType;
-  if (image.name.length > 45) {
-    itemType = "Plastic";
-  } else {
-    itemType = "Trash";
-  }
-  return itemType;
 };
 
 const formatDate = (imageDate) => {
@@ -64,11 +58,17 @@ const formatDate = (imageDate) => {
 
 const isRecyclable = (imageType) => {
   switch (imageType) {
-    case "Plastic":
-      return true;
+    case "plastic":
+      return { type: "Plastic", recyclable: true };
 
-    case "Trash":
-      return false;
+    case "trash":
+      return { type: "Trash", recyclable: false };
+
+    case "metal":
+      return { type: "Metal", recyclable: true };
+
+    case "unknown":
+      return { type: "Unknown", recyclable: false };
   }
 };
 
