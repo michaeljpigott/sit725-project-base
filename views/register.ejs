@@ -32,7 +32,7 @@
 						setTimeout(function () {
 							document.getElementById("check").innerHTML = "";
 						}, 3000);
-						if (response.Success == "You are registered,You can login now.") {
+						if (response.Success == "You are regestered,You can login now.") {
 							document.getElementById("aa").click();
 						};
 					},
@@ -46,23 +46,30 @@
 
 <body>
 
+	<div class="col-md-4 col-md-offset-4">
+		<div class="form-style-5">
+			<form id="form1" method="post">
+				<legend><span class="number">1</span> User Registration</legend>
+				<input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br />
+				<input type="text" name="username" placeholder="Username" required="" class="form-control"><br />
+				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br />
+				<input type="password" name="passwordConf" placeholder="Confirm Password" required=""
+					class="form-control"><br />
+				<input type="submit" value="Register" class="btn btn-success">
+			</form>
 
-	<div class="form-style-5">
-		<form id="form1" method="post">
-			<legend><span class="number">1</span> User Registration</legend>
-			<input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br />
-			<input type="text" name="username" placeholder="Username" required="" class="form-control"><br />
-			<input type="password" name="password" placeholder="Password" required="" class="form-control"><br />
-			<input type="password" name="passwordConf" placeholder="Confirm Password" required=""
-				class="form-control"><br />
-			<input type="submit" value="Register" class="btn btn-success">
-			<span>Already Registered? <a href="/login">Login</a></span>
-		</form>
+			<div class="mssg bg-danger">
+				<span id="check"></span>
+			</div>
+			<div>
+				<span>Already Registered? <a href="/login">Login</a></span>
+			</div>
+			<div id="LangTable"><a href="/login" id="aa"></a>
+			</div>
 
+		</div>
 
 	</div>
-
-
 </body>
 
 </html>

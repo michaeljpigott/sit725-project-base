@@ -45,14 +45,14 @@ router.post('/register', function(req, res, next) {
 						});
 
 					}).sort({_id: -1}).limit(1);
-					res.send({"Success":"You are now registered. Go to login."});
+					res.send({"Success":"You are regestered,You can login now."});
 				}else{
-					res.send({"Success":"Email is already in use."});
+					res.send({"Success":"Email is already used."});
 				}
 
 			});
 		}else{
-			res.send({"Success":"password is not a match"});
+			res.send({"Success":"password is not matched"});
 		}
 	}
 });
@@ -76,7 +76,7 @@ router.post('/login', function (req, res, next) {
 				res.send({"Success":"Wrong password!"});
 			}
 		}else{
-			res.send({"Success":"This Email is not registered!"});
+			res.send({"Success":"This Email Is not regestered!"});
 		}
 	});
 });
@@ -134,7 +134,7 @@ router.post('/forgetpass', function (req, res, next) {
 					res.send({"Success":"Password changed!"});
 			});
 		}else{
-			res.send({"Success":"Passwords do not match! Both Passwords should be the same."});
+			res.send({"Success":"Password does not matched! Both Password should be same."});
 		}
 		}
 	});

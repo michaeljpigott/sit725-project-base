@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/CanURecycleIt?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, (err) => {
@@ -54,8 +54,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/views'));
 
-var userRoutes = require('./routes/userRoutes');
-app.use(userRoutes);
+var index = require('./routes/userRoutes');
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -73,5 +73,5 @@ app.use(function (err, req, res, next) {
 
 
 app.listen(port, () => {
-  console.log("App listening to http://localhost:"+port + '/index')
+  console.log("App listening to http://localhost:"+port+'/index')
 });
