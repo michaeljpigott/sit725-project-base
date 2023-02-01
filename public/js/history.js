@@ -6,6 +6,19 @@ const getImages = () => {
   });
 };
 
+const removeImageFromApp = (imageId, predictionId) => {
+  console.log("sending ajax to route");
+  $.ajax({
+    url: "/api/history",
+    data: { image: imageId, prediction: predictionId },
+    type: "DELETE",
+    success: (result) => {
+      console.log(result.message);
+      location.reload(); // automatically reloads the page
+    },
+  });
+};
+
 const addImages = (data) => {
   data.forEach((image) => {
     const imagePrediction = isRecyclable(image.predictionText);
@@ -41,9 +54,28 @@ const addImages = (data) => {
                   </p>
                 </div>
               </div>
+              <div>
+                <a class="btn delete-btn" data-record-id="${
+                  image.id
+                }" data-prediction-id="${image.predictionId}" data-target="">
+                  
+                Delete</a>
+              </div>
             </div>
           </div>`
     );
+  });
+  addDeleteFunction();
+};
+
+const addDeleteFunction = () => {
+  document.querySelectorAll(".delete-btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      removeImageFromApp(
+        event.target.getAttribute("data-record-id"),
+        event.target.getAttribute("data-prediction-id")
+      );
+    });
   });
 };
 
