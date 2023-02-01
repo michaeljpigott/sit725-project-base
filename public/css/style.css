@@ -154,6 +154,15 @@ main#homepage .button#sign-up-button {
   color: red;
 }
 
+.history-item .delete-btn,
+.history-item .delete-btn:hover {
+  line-height: 1;
+  padding: 5px;
+  height: auto;
+  background-color: #f66465;
+  box-shadow: none;
+}
+
 /* form styling */
 
 .form-style-5 {

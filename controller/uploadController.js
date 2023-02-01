@@ -57,4 +57,19 @@ const downloadImages = async (req, res) => {
   }
 };
 
-module.exports = { uploadFiles, getListFiles, downloadImages };
+const deleteImage = (req, res) => {
+  console.log("Image deleting", req.body.image);
+  upload.removeImage(req.body.image, req.body.prediction, (err, result) => {
+    if (err) {
+      res.json({ statusCode: 400, message: err });
+    } else {
+      res.json({
+        statusCode: 200,
+        message: "image successfully deleted",
+        data: result,
+      });
+    }
+  });
+};
+
+module.exports = { uploadFiles, getListFiles, downloadImages, deleteImage };

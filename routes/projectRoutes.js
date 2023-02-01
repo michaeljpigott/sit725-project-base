@@ -26,11 +26,6 @@ router.get("/images/:name", (req, res) => {
   controller.uploadController.downloadImages(req, res);
 });
 
-// this should delete an item from user history
-// router.delete("/history", (req, res) => {
-//   controller.projectController.deleteItem(req, res);
-// });
-
 // this renders the location.html file on the /location route
 router.get("/location", (req, res) => {
   let fileLocation = rootDir + "/public/location.html"; // creates absolute path for html file

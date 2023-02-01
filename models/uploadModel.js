@@ -36,10 +36,12 @@ const retrieveFiles = async () => {
 
   await images.forEach((doc) => {
     fileInfo.push({
+      id: doc._id,
       name: doc.filename,
       url: "http://localhost:3000/images/" + doc.filename,
       date: doc.uploadDate,
       predictionText: "unknown",
+      predictionId: 0,
     });
   });
 
@@ -47,6 +49,7 @@ const retrieveFiles = async () => {
     fileInfo.forEach((file) => {
       if (file.name == record.filename) {
         file.predictionText = record.prediction;
+        file.predictionId = record._id;
       }
     });
   });
@@ -63,7 +66,25 @@ const retrieveImages = async () => {
   return bucket;
 };
 
+const removeImage = (imageId, predictionId, callback) => {
+  client
+    .db("test")
+    .collection("photos.files")
+    .deleteOne({ _id: new mongo.ObjectId(imageId) }, callback);
+  if (predictionId != 0) {
+    client
+      .db("test")
+      .collection("Uploads")
+      .deleteOne({ _id: new mongo.ObjectId(predictionId) });
+  }
+};
+
 var uploadFiles = multer({ storage: storage }).single("file");
 var uploadFilesMiddleware = util.promisify(uploadFiles);
 
-module.exports = { uploadFilesMiddleware, retrieveFiles, retrieveImages };
+module.exports = {
+  uploadFilesMiddleware,
+  retrieveFiles,
+  retrieveImages,
+  removeImage,
+};
