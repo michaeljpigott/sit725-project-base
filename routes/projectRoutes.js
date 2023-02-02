@@ -1,15 +1,16 @@
 var express = require("express");
 var router = express.Router();
 let controller = require("../controller");
-var User = require('../models/user');
-const path = require('path');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk';
+var User = require("../models/user");
+const path = require("path");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET =
+  "sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk";
 
-router.use('/', express.static(path.join(__dirname, 'public')))
-router.use(bodyParser.json())
+router.use("/", express.static(path.join(__dirname, "public")));
+router.use(bodyParser.json());
 
 let rootDir = process.cwd(); // the root directory of the project on your local computer
 
@@ -25,6 +26,10 @@ router.get("/history", (req, res) => {
 	//   controller.projectController.retrieveItems(req, res);
 	let fileLocation = rootDir + "/public/history.html"; // creates absolute path for html file
 	res.sendFile(fileLocation);
+});
+
+router.get("/images/:name", (req, res) => {
+  controller.uploadController.downloadImages(req, res);
 });
 
 // this renders the location.html file on the /location route
@@ -60,4 +65,5 @@ router.get("/upload", (req, res) => {
 router.post("/upload", controller.uploadController.uploadFiles);
 
 
-module.exports = router;  
+
+module.exports = router;

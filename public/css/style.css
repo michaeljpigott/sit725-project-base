@@ -25,6 +25,7 @@ nav i {
 
 main.with-nav {
   padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 /* bottom nav */
@@ -149,99 +150,103 @@ main#homepage .button#sign-up-button {
 .history-item .item-result-symbol.check {
   color: green;
 }
-.history-item .item-result-symbol.cross {
+.history-item .item-result-symbol.close {
   color: red;
 }
 
-
+.history-item .delete-btn,
+.history-item .delete-btn:hover {
+  line-height: 1;
+  padding: 5px;
+  height: auto;
+  background-color: #f66465;
+  box-shadow: none;
+}
 
 /* form styling */
 
-.form-style-5{
-	max-width: 500px;
-	padding: 10px 20px;
-	background: #f4f7f8;
-	margin: 60px auto;
-	padding: 20px;
-	background: #f4f7f8;
-	border-radius: 8px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+.form-style-5 {
+  max-width: 500px;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  margin: 60px auto;
+  padding: 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-.form-style-5 fieldset{
-	border: none;
+.form-style-5 fieldset {
+  border: none;
 }
 .form-style-5 legend {
-	font-size: 1.4em;
-	margin-bottom: 10px;
+  font-size: 1.4em;
+  margin-bottom: 10px;
 }
 .form-style-5 label {
-	display: block;
-	margin-bottom: 8px;
+  display: block;
+  margin-bottom: 8px;
 }
 .form-style-5 input[type="text"],
 .form-style-5 input[type="password"],
 
 /* input boxes */
 .form-style-5 select {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	background: rgba(255,255,255,.1);
-	border: none;
-	border-radius: 4px;
-	font-size: 15px;
-	margin: 0;
-	outline: 0;
-	padding: 10px;
-	width: 100%;
-	box-sizing: border-box; 
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
-	background-color: #e8eeef;
-	color:#8a97a0;
-	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-	margin-bottom: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
 }
 .form-style-5 input[type="text"]:focus,
 .form-style-5 input[type="password"]:focus,
-
 .form-style-5 textarea:focus,
-.form-style-5 select:focus{
-	background: #d2d9dd;
+.form-style-5 select:focus {
+  background: #d2d9dd;
 }
 
 .form-style-5 .number {
-	background: #f6f294;
-	color: #fff;
-	height: 30px;
-	width: 30px;
-	display: inline-block;
-	font-size: 0.8em;
-	margin-right: 4px;
-	line-height: 30px;
-	text-align: center;
-	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-	border-radius: 15px 15px 15px 0px;
+  background: #f6f294;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 15px 15px 15px 0px;
 }
 
 .form-style-5 input[type="submit"],
-.form-style-5 input[type="button"]
-{
-	position: relative;
-	display: block;
-	padding: 19px 39px 18px 39px;
-	color: rgb(0, 0, 0);
-	margin: 0 auto;
-	background: #f6f294;
-	font-size: 18px;
-	text-align: center;
-	font-style: normal;
-	width: 100%;
-	border: 1px solid #f6f294;
-	border-width: 1px 1px 3px;
-	margin-bottom: 10px;
+.form-style-5 input[type="button"] {
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: rgb(0, 0, 0);
+  margin: 0 auto;
+  background: #f6f294;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  width: 100%;
+  border: 1px solid #f6f294;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
 }
 .form-style-5 input[type="submit"]:hover,
-.form-style-5 input[type="button"]:hover
-{
-	background: #f6f294;
+.form-style-5 input[type="button"]:hover {
+  background: #f6f294;
 }

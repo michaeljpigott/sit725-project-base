@@ -12,9 +12,11 @@ var MongoStore = require('connect-mongo')(session);
 var cors = require("cors");
 let client = require("./dbConnect");
 let projectRoutes = require("./routes/projectRoutes");
+let historyRoutes = require("./routes/historyRoutes");
 
 app.use(cors());
 app.use(projectRoutes);
+app.use("/api/history", historyRoutes);
 app.use("/api/suburbs", projectRoutes); /// might be an issue
 
 app.use(express.static(__dirname + "/public"));
