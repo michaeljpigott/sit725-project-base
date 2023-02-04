@@ -1,9 +1,14 @@
 var express = require("express");
-var env = require("dotenv").config();
+const socketio = require("socket.io");
 var port = process.env.port || 3000;
 var ejs = require("ejs");
 var path = require("path");
 var app = express();
+
+//variables for sockets
+let http = require("http").createServer(app);
+const io = socketio(http);
+
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var session = require("express-session");
@@ -76,6 +81,12 @@ app.use(function (err, req, res, next) {
   res.send(err.message);
 });
 
-app.listen(port, () => {
+io.on("connection", (socket) => {
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg);
+  });
+});
+
+http.listen(port, () => {
   console.log("App listening to http://localhost:" + port + "/index");
 });

@@ -38,6 +38,12 @@ router.get("/location", (req, res) => {
   res.sendFile(fileLocation);
 });
 
+// this renders the chat.html file on the /chat route
+router.get("/chat", (req, res) => {
+  let fileLocation = rootDir + "/public/chat.html"; // creates absolute path for html file
+  res.sendFile(fileLocation);
+});
+
 // this should save a new item to user history
 // router.post("/history", (req, res) => {
 //   controller.projectController.createItem(req, res);
