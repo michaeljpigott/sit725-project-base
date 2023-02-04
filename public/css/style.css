@@ -250,3 +250,31 @@ main#homepage .button#sign-up-button {
 .form-style-5 input[type="button"]:hover {
   background: #f6f294;
 }
+/*CSS for chat window*/
+#chat {
+  position: fixed;
+  bottom: 100px;
+  width: 100%;
+  padding-left: 0;
+  padding-top: 10px;
+}
+#chat col {
+  padding-left: 0;
+  margin-top: 0px;
+}
+
+.no-left-padding {
+  padding-left: 0px !important;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages > li {
+  padding: 0.5rem 1rem;
+}
+#messages > li:nth-child(odd) {
+  background: #efefef;
+}

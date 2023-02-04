@@ -1,5 +1,7 @@
 let locationModel = require("../models/locationModel");
 
+//insert data into 
+
 //this will get all items from the database about Melbourne suburbs
 
 const retrieveSuburbs = (req, res) => {

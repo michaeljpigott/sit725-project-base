@@ -11,4 +11,15 @@ const melbData = (callback) => {
   melbSuburbs.find({}).toArray(callback);
 };
 
-module.exports = { melbData };
+// connect to the database collection of users
+setTimeout(() => {
+  usersList = client.db("CanURecycleIt").collection("users");
+}, 2000);
+
+//create a variable to export
+
+const usersData = (callback) => {
+  usersList.find({}).toArray(callback);
+};
+
+module.exports = { melbData, usersData };

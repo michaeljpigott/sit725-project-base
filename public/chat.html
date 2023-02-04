@@ -3,17 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Location preference - Can U Recycle it</title>
-    <meta name="description" content="Location preference - Can U Recycle it" />
+    <title>Recycling chat - Can U Recycle it</title>
+    <meta name="description" content="Recycling chat - Can U Recycle it" />
     <meta name="author" content="SitePoint" />
-    <meta
-      property="og:title"
-      content="Location preference - Can U Recycle it"
-    />
+    <meta property="og:title" content="Recyling chat - Can U Recycle it" />
     <meta property="og:type" content="website" />
     <meta
       property="og:description"
-      content="Location preference - Can U Recycle it"
+      content="Recycling chat - Can U Recycle it"
     />
     <!--custom CSS-->
     <link rel="stylesheet" href="/css/style.css" />
@@ -31,7 +28,7 @@
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"
             ><i class="material-icons">menu</i></a
           >
-          <h1 class="">Location preference</h1>
+          <h1 class="">Recycling chat</h1>
           <ul class="right hide-on-med-and-down">
             <li><a href="sass.html">Sass</a></li>
             <li><a href="badges.html">Components</a></li>
@@ -49,42 +46,33 @@
     </ul>
     <main class="with-nav">
       <div class="container">
-        <p>Set your favourite location on this page.</p>
-        <div class="row selectSuburb">
+        <div class="row">
           <div class="col s12">
-            <div class="row selectSuburb">
-              <div class="input-field col s12">
-                <i class="material-icons prefix">my_location</i>
-                <input type="text" id="suburb" class="autocomplete" />
-                <label for="suburb">Enter suburb name or postcode</label>
-              </div>
-            </div>
+            <p>You can chat with other users about recycling here.</p>
           </div>
         </div>
         <div class="row">
-          <div class="col s12 m6" id="suburb-info">
-            <p>
-              Your suburb,
-              <strong><span id="suburb-output">suburb-output</span></strong
-              >, belongs to the
-              <strong><span id="council-name">council-name</span></strong> local
-              government area.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m6">
-            <button
-              class="waves-effect waves-light btn"
-              id="saveLocationButton"
-            >
-              Save
-            </button>
+          <div class="col s12">
+            <ul id="messages"></ul>
           </div>
         </div>
       </div>
     </main>
-
+    <div class="row black" id="chat">
+      <form id="form" action="">
+        <div class="col s9">
+          <input class="white" id="input" autocomplete="off" />
+        </div>
+        <div class="col s2">
+          <button
+            class="waves-effect waves-light btn pink darken-1"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
     <div class="bottom-nav">
       <div>
         <a href="/"><i class="material-icons">home</i></a>
@@ -118,5 +106,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="module" src="/js/scripts.js"></script>
     <script src="/js/navbar.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      let socket = io();
+
+      let messages = document.getElementById("messages");
+      let form = document.getElementById("form");
+      let input = document.getElementById("input");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          console.log(input.value);
+          input.value = "";
+        }
+      });
+      socket.on("chat message", function (msg) {
+        let item = document.createElement("li");
+        item.textContent = msg;
+        console.log("socket.on has run");
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+//const { isObjectIdOrHexString } = require("mongoose");
+
 $(document).ready(function () {
   //I put all code inside this function so Javascript doesn't work until webpage has been loaded.
 
@@ -67,3 +69,20 @@ $(document).ready(function () {
 
   getSuburbs();
 });
+//the functionality to save location
+
+const saveLocation = () => {
+  console.log("saveLocation function has run");
+  let saveData;
+  saveData = $("#council-name").text();
+  console.log(saveData);
+};
+
+//calls the saveLocation function once the document has been loaded
+$(document).ready(function () {
+  $("#saveLocationButton").click(() => {
+    saveLocation();
+  });
+});
+
+//script for sockets
