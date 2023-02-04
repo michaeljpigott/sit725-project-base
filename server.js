@@ -17,7 +17,7 @@ let historyRoutes = require("./routes/historyRoutes");
 app.use(cors());
 app.use(projectRoutes);
 app.use("/api/history", historyRoutes);
-app.use("/api/suburbs", projectRoutes); /// might be an issue
+//app.use("/api/suburbs", projectRoutes); /// might be an issue
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
@@ -49,7 +49,7 @@ app.use(session({
 }));
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');	
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
