@@ -32,6 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     <script src="/js/upload.js"></script>
 
 
@@ -44,6 +45,7 @@
           action="/upload"
           method="POST"
           enctype="multipart/form-data"
+          
         >
           <div class="form-group">
             <input
@@ -53,9 +55,13 @@
               class="form-control-file border"
             />
           </div>
+          <div class="preview-images"></div>
+          <ol id="prediction-list"></ol>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-      <div class="preview-images"></div>
+      <button id="submitted-button" class="btn btn-primary">Predict</button>
+
 
       </div>
     </body>

@@ -3,6 +3,8 @@ let client = require("../dbConnect");
 const util = require("util");
 const multer = require("multer");
 const { GridFsStorage } = require("multer-gridfs-storage");
+
+
 let projectCollection;
 
 
@@ -24,7 +26,8 @@ var storage = new GridFsStorage({
 
     return {
       bucketName: "photos",
-      filename: `${Date.now()}-canUrecycleit-${file.originalname}`
+      filename: `${Date.now()}-canUrecycleit-${file.originalname}`,
+      //metadata: document.getElementById("prediction-list").innerText
     };
   }
 });
