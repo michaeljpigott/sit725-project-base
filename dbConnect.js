@@ -1,8 +1,6 @@
-const dotenv = require("dotenv");
-dotenv.config();
 const MongoClient = require("mongodb").MongoClient; //connects MongoDb with the project
 
-//add database connection (need to add connection information to .env file)
+
 
 //const database =
 const uri =
