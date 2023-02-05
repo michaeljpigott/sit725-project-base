@@ -10,8 +10,9 @@ const removeImageFromApp = (imageId, predictionId) => {
   console.log("sending ajax to route");
   $.ajax({
     url: "/api/history",
-    data: { image: imageId, prediction: predictionId },
+    data: JSON.stringify({ image: imageId, prediction: predictionId }),
     type: "DELETE",
+    contentType: "application/json",
     success: (result) => {
       console.log(result.message);
       location.reload(); // automatically reloads the page
