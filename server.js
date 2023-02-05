@@ -20,10 +20,10 @@ let projectRoutes = require("./routes/projectRoutes");
 let historyRoutes = require("./routes/historyRoutes");
 
 app.use(cors());
+app.use(express.static(__dirname + "/public"));
 app.use(projectRoutes);
 app.use("/api/history", historyRoutes);
 
-app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 
 mongoose.connect(
