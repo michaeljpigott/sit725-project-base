@@ -2,7 +2,7 @@ const upload = require("../models/uploadModel");
 
 const uploadFiles = async (req, res) => {
   try {
-    await upload(req, res);
+    await upload.uploadFilesMiddleware(req, res);
     console.log(req.file);
 
     if (req.file == undefined) {
