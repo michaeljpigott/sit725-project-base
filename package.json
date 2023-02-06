@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/michaeljpigott/sit725-project-base#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "chai": "^4.3.7",

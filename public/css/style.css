@@ -188,6 +188,7 @@ main#homepage .button#sign-up-button {
 }
 .form-style-5 input[type="text"],
 .form-style-5 input[type="password"],
+.form-style-5 input[type="email"],
 
 /* input boxes */
 .form-style-5 select {
