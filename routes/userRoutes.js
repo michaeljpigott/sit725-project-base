@@ -33,55 +33,38 @@ router.post('/register', async (req, res, next) => {
 							console.log("if");
 							c = data.unique_id + 1;
 						} else {
-							// c = 1;
+							c = 1;
 						}
 
+						const hashedPwd = await bcrypt.hash(personInfo.password, saltRounds);
+						const newPerson = await User.create({
+							unique_id: c,
+							email: personInfo.email,
+							username: personInfo.username,
+							password: hashedPwd,
+							passwordConf: hashedPwd
+						});
 
-						// var newPerson = new User({
-						// 	unique_id: c,
-						// 	email: personInfo.email,
-						// 	username: personInfo.username,
-						// 	password: personInfo.password,
-						// 	passwordConf: personInfo.passwordConf
-						// });
-
-
-						try {
-							const hashedPwd = await bcrypt.hash(personInfo.password, saltRounds);
-							const insertResult = await User.create({
-								unique_id: c,
-								email: personInfo.email,
-								username: personInfo.username,
-								password: hashedPwd,
-								passwordConf: personInfo.passwordConf
-
-							});
-							res.send(insertResult);
-						} catch (error) {
-							console.log(error);
-							res.status(500).send("Internal Server error Occured");
-						};
-						//store hash in the database
-						// newPerson.save(function (err, Person) {
-						// 	if (err)
-						// 		console.log(err);
-						// 	else
-						// 		console.log('Success');
-						// });
-
+						newPerson.save(function (err, Person) {
+							if (err)
+								console.log(err);
+							else
+								console.log('Success');
+						});
 
 					}).sort({ _id: -1 }).limit(1);
-					res.send({ "Success": "You are now registered. Go to Login." });
-				} else {
-					res.send({ "Success": "Email is already used." });
+					res.send({"Success":"You are now registered. Go to Login."});
+				}else{
+					res.send({"Success":"Email is already used."});
 				}
 
 			});
-		} else {
-			res.send({ "Success": "password is not a match" });
+		}else{
+			res.send({"Success":"password is not a match"});
 		}
 	}
 });
+
 
 router.get('/login', function (req, res, next) {
 	return res.render('login.ejs');
@@ -89,26 +72,23 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login', async (req, res, next) => {
 	// try {
-		User.findOne({ email: req.body.email }, async (err,data) => {
+	User.findOne({ email: req.body.email }, async (err, data) => {
 		if (data) {
 			const cmp = await bcrypt.compare(req.body.password, data.password)
 			if (cmp) {
 				//console.log("Done Login");
 				req.session.userId = data.unique_id;
 				//console.log(req.session.userId);
-				res.send({"Success":"Success!"});
+				res.send({ "Success": "Success!" });
 			} else {
 				res.send("Wrong username or password.");
 			}
 		} else {
-			res.send("Wrong username or password.");
+			res.send({ "Success": "This Email Is not registered!" });
 		}
-		});
-	// } catch (error) {
-	// 	console.log(error);
-	// 	res.status(500).send("Internal Server error Occured");
-	// }
+	});
 });
+
 
 
 router.get('/profile', function (req, res, next) {
