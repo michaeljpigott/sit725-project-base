@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+<<<<<<< Updated upstream
 const bcrypt = require("bcrypt");
 bodyParser = require("body-parser");
 
@@ -8,13 +9,20 @@ const saltRounds = 10;
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+=======
+var bcrypt = require('bcrypt');
+>>>>>>> Stashed changes
 
 router.get('/register', function (req, res, next) {
 	return res.render('register.ejs');
 });
 
 
+<<<<<<< Updated upstream
 router.post('/register', async (req, res, next) => {
+=======
+router.post('/register', async function(req, res, next) {
+>>>>>>> Stashed changes
 	console.log(req.body);
 	var personInfo = req.body;
 
@@ -45,8 +53,15 @@ router.post('/register', async (req, res, next) => {
 							passwordConf: hashedPwd
 						});
 
+<<<<<<< Updated upstream
 						newPerson.save(function (err, Person) {
 							if (err)
+=======
+						newPerson.passwordHash = bcrypt.hashSync(personInfo.password, 10);
+
+						newPerson.save(function(err, Person){
+							if(err)
+>>>>>>> Stashed changes
 								console.log(err);
 							else
 								console.log('Success');
