@@ -1,5 +1,7 @@
 const classes = {0: "Cardboard", 1: "Glass", 2: "Metal", 3:"Paper", 4:"Plastic", 5: "Trash" }
 
+let socket = io();
+
 let imagesPreview = function(input, placeToInsertImagePreview) {
   if (input.files) {
     let filesAmount = input.files.length;
@@ -19,7 +21,12 @@ let imagesPreview = function(input, placeToInsertImagePreview) {
 // Loading model. Note: Server port needs to be opened in order to load model. 
 let model;
 (async function () {
-    model = await tf.loadLayersModel("http://127.0.0.1:5501/public/model_json/model.json");
+  try{model = await tf.loadLayersModel("http://127.0.0.1:5501/public/model_json/model.json");
+  }
+  catch (err){
+    alert("Error: Model not loaded. Make sure server is live and reload.")
+  }
+    
 })();
 
 
@@ -38,7 +45,7 @@ let tensorImage = function(){
   return tensor
   };
 
-  let prediction; 
+  var prediction; 
   let predictions_array; 
   // predictImage function call the AI to predict image. 
   // Input: tensor array returned from tensorImage function
@@ -70,6 +77,20 @@ let tensorImage = function(){
       return prediction
     }
     
+
+//ajax function...
+const predictionAjax = (project) => {
+  $.ajax({
+      url: '/prediction',
+      data: project,
+      type: 'POST',
+      // success: (result) => {
+      //     alert(result.message);
+      //     //location.reload(); // it automatically reloads the page 
+      // }
+  })
+}
+
 $(document).ready(function() {
 
   $("#input-files").on("change",function () {
@@ -77,19 +98,20 @@ $(document).ready(function() {
   });
 
   $("#submitted-button").click(async function() {
+
     tensor = tensorImage()
     predictImage(tensor).then((result)=> {
       //console.log("direct from promise: ", result)
       prediction = result
-      resolvedPromise();
+      resolvedPromise(prediction);
     })
 
-    function resolvedPromise() {
-      //console.log("from outside promise: ", prediction);
-      // make any functions calling prediction here
+    function resolvedPromise(prediction) {
+      socket.emit('prediction', prediction);
+      let formData = {};
+      formData.Material = prediction;
+      predictionAjax(formData)
     }
 
   });
-
-
 });

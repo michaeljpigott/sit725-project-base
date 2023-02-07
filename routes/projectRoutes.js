@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 let controller = require("../controller");
 
+
 let rootDir = process.cwd(); // the root directory of the project on your local computer
 
 router.get("");
@@ -41,5 +42,11 @@ router.get("/upload", (req, res) => {
 });
 
 router.post("/upload", controller.uploadController.uploadFiles);
+
+router.post("/prediction", (req, res) => {
+  console.log("router prediction:" + req)
+  controller.uploadController.predictionUpload(req, res)
+});
+
 
 module.exports = router;  
