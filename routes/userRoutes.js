@@ -81,7 +81,7 @@ router.post('/login', async (req, res, next) => {
 				//console.log(req.session.userId);
 				res.send({ "Success": "Success!" });
 			} else {
-				res.send("Wrong username or password.");
+				res.send( {"Success": "Wrong username or password."});
 			}
 		} else {
 			res.send({ "Success": "This Email Is not registered!" });
