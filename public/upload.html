@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Can U Recycle it</title>
-    <meta name="description" content="Can U Recycle it" />
+    <title>Upload - Can U Recycle it</title>
+    <meta name="description" content="Upload - Can U Recycle it" />
     <meta name="author" content="SitePoint" />
-    <meta property="og:title" content="Can U Recycle it" />
+    <meta property="og:title" content="Upload - Can U Recycle it" />
     <meta property="og:type" content="website" />
     <meta
       property="og:description"
-      content="Can U Recycle it"
+      content="Uploadt - Can U Recycle it"
     />
     <!--custom CSS-->
     <link rel="stylesheet" href="/css/style.css" />
@@ -19,48 +19,101 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <h1 class="">Upload</h1>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+
+    <main class="with-nav">
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <h6>Upload your image from your camera roll!</h6>
+            </div>
+          </div>
+            <div class="col s12">
+              <form class="mt-4"
+                action="/upload"
+                method="POST"
+                enctype="multipart/form-data"  
+                >          
+                <div class="form-group">
+                  <input
+                    type="file"
+                    name="file"
+                    id="input-files"
+                    class="form-control-file border"
+                  />
+                </div>
+              <div class="preview-images"></div>
+          <ol id="prediction-list"></ol>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      <button id="submitted-button" class="btn btn-primary">Predict</button>
+      </div>
+    </main>
+  
+    <div class="bottom-nav">
+      <div>
+        <a href="/"><i class="material-icons">home</i></a>
+      </div>
+      <div>
+        <a href="/chat"><i class="material-icons">search</i></a>
+      </div>
+      <div class="middle-bottom">
+        <div>
+          <a href="/upload"><i class="material-icons">upload</i></a>
+        </div>
+      </div>
+      <div>
+        <a href="/history"><i class="material-icons">history</i></a>
+      </div>
+      <div>
+        <a href="/profile"><i class="material-icons">person</i></a>
+      </div>
+    </div>
     <!--Compiled and minified JavaScript -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
     <!--Get the google icons-->
     <link href=https://fonts.googleapis.com/icon?family=Material+Icons
     rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="/js/scripts.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>​
     <script src="/js/upload.js"></script>
-
-
-  </head>
-    <body>
-      <main>
-        <div class="container">
-        <h3>Upload your photo.</h3></main>
-          <form class="mt-4"
-          action="/upload"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <div class="form-group">
-            <input
-              type="file"
-              name="file"
-              id="input-files"
-              class="form-control-file border"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      <div class="preview-images"></div>
-
-      {% if prediction %}
-	    <h4> Your Prediction   : <i> {{prediction}} </i></h4>
-	    {% endif %}
-
-      </div>
-    </body>
+    
+  </body>
 </html>

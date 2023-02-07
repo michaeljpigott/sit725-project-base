@@ -1,27 +1,28 @@
 const upload = require("../models/uploadModel");
 
-const uploadFiles = async (req, res) => {
-  try {
-    await upload.uploadFilesMiddleware(req, res);
-    console.log(req.file);
-
-    if (req.file == undefined) {
-      return res.send({
-        message: "You must select a file.",
-      });
-    }
-
-    return res.send({
-      message: "File has been uploaded.",
-    });
-  } catch (error) {
-    console.log(error);
-
-    return res.send({
-      message: "Error when trying upload image: ${error}",
-    });
-  }
+const predictionUpload = async (req, res) => {
+  var newProject = req.body;
+  console.log( req.body)
+  upload.predictionModel(newProject);
 };
+
+const uploadFiles = async (req, res) => {
+    try {
+      await upload.uploadFilesMiddleware(req, res);
+      console.log(req.file);
+  
+      if (req.file == undefined) {
+        return res.send('<script>alert("Please Select An Image ! "); window.location.href = "/upload"; </script>');
+      }
+  
+      return res.send('<script>alert("Prediction Saved."); window.location.href = "/upload"; </script>');
+      
+    } catch (error) {
+      console.log(error);
+  
+      return res.send('<script>alert("Error! Please Try Again."); window.location.href = "/upload"; </script>');
+    }
+  };
 
 const getListFiles = async (req, res) => {
   const files = await upload.retrieveFiles();
@@ -72,4 +73,4 @@ const deleteImage = (req, res) => {
   });
 };
 
-module.exports = { uploadFiles, getListFiles, downloadImages, deleteImage };
+module.exports = {predictionUpload, uploadFiles, getListFiles, downloadImages, deleteImage };
