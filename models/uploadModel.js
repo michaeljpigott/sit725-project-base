@@ -11,17 +11,16 @@ setTimeout(() => {
   projectCollection = client.db().collection("Uploads");
 }, 2000);
 
-
-let data; 
+let data;
 
 var predictionModel = (project) => {
   //data = project //project.Material;
-  console.log(project)
+  console.log(project);
   //return data
-  }
+};
 
 var storage = new GridFsStorage({
-  url:"mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority",
+  url: "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority",
   options: { useNewUrlParser: true, useUnifiedTopology: true },
   file: (req, file) => {
     const match = ["image/png", "image/jpeg"];
@@ -34,9 +33,9 @@ var storage = new GridFsStorage({
     return {
       bucketName: "photos",
       filename: `${Date.now()}-canUrecycleit-${file.originalname}`,
-      metadata: `${data}`
+      metadata: `${data}`,
     };
-  }
+  },
 });
 const retrieveFiles = async () => {
   const images = client.db("test").collection("photos.files").find({});
@@ -49,19 +48,20 @@ const retrieveFiles = async () => {
       name: doc.filename,
       url: "http://localhost:3000/images/" + doc.filename,
       date: doc.uploadDate,
-      predictionText: "unknown",
-      predictionId: 0,
+      // predictionText: "unknown",
+      // predictionId: 0,
+      prediction: doc.metadata,
     });
   });
 
-  await predictionRecords.forEach((record) => {
-    fileInfo.forEach((file) => {
-      if (file.name == record.filename) {
-        file.predictionText = record.prediction;
-        file.predictionId = record._id;
-      }
-    });
-  });
+  // await predictionRecords.forEach((record) => {
+  //   fileInfo.forEach((file) => {
+  //     if (file.name == record.filename) {
+  //       file.predictionText = record.prediction;
+  //       file.predictionId = record._id;
+  //     }
+  //   });
+  // });
 
   return fileInfo;
 };
@@ -80,12 +80,12 @@ const removeImage = (imageId, predictionId, callback) => {
     .db("test")
     .collection("photos.files")
     .deleteOne({ _id: new mongo.ObjectId(imageId) }, callback);
-  if (predictionId != 0) {
-    client
-      .db("test")
-      .collection("Uploads")
-      .deleteOne({ _id: new mongo.ObjectId(predictionId) });
-  }
+  // if (predictionId != 0) {
+  //   client
+  //     .db("test")
+  //     .collection("Uploads")
+  //     .deleteOne({ _id: new mongo.ObjectId(predictionId) });
+  // }
 };
 
 var uploadFiles = multer({ storage: storage }).single("file");
