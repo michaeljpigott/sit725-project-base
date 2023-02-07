@@ -120,6 +120,7 @@ main#homepage .button#sign-up-button {
 .selectSuburb {
   margin-bottom: 0px !important;
 }
+
 /* Hides the suburb information before it is selected on the location page */
 #suburb-info {
   display: none;
@@ -150,6 +151,7 @@ main#homepage .button#sign-up-button {
 .history-item .item-result-symbol.check {
   color: green;
 }
+
 .history-item .item-result-symbol.close {
   color: red;
 }
@@ -175,17 +177,21 @@ main#homepage .button#sign-up-button {
   border-radius: 8px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 .form-style-5 fieldset {
   border: none;
 }
+
 .form-style-5 legend {
   font-size: 1.4em;
   margin-bottom: 10px;
 }
+
 .form-style-5 label {
   display: block;
   margin-bottom: 8px;
 }
+
 .form-style-5 input[type="text"],
 .form-style-5 input[type="password"],
 .form-style-5 input[type="email"],
@@ -210,6 +216,7 @@ main#homepage .button#sign-up-button {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
 }
+
 .form-style-5 input[type="text"]:focus,
 .form-style-5 input[type="password"]:focus,
 .form-style-5 textarea:focus,
@@ -247,10 +254,26 @@ main#homepage .button#sign-up-button {
   border-width: 1px 1px 3px;
   margin-bottom: 10px;
 }
+
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover {
   background: #f6f294;
 }
+
+.plant2 {
+  background-image: url("/images/plant2.jpg") !important;
+  background-size: 120%;
+  background-repeat: no-repeat;
+}
+
+.login {
+  background-color: #f8f5b0;
+}
+
+.register {
+  background-color: #f8f5b0;
+}
+
 /*CSS for chat window*/
 #chat {
   position: fixed;
@@ -259,6 +282,7 @@ main#homepage .button#sign-up-button {
   padding-left: 0;
   padding-top: 10px;
 }
+
 #chat col {
   padding-left: 0;
   margin-top: 0px;
@@ -273,9 +297,11 @@ main#homepage .button#sign-up-button {
   margin: 0;
   padding: 0;
 }
-#messages > li {
+
+#messages>li {
   padding: 0.5rem 1rem;
 }
-#messages > li:nth-child(odd) {
+
+#messages>li:nth-child(odd) {
   background: #efefef;
 }
