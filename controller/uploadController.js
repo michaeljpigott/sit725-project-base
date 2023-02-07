@@ -2,27 +2,32 @@ const upload = require("../models/uploadModel");
 
 const predictionUpload = async (req, res) => {
   var newProject = req.body;
-  console.log( req.body)
+  console.log(req.body);
   upload.predictionModel(newProject);
 };
 
 const uploadFiles = async (req, res) => {
-    try {
-      await upload.uploadFilesMiddleware(req, res);
-      console.log(req.file);
-  
-      if (req.file == undefined) {
-        return res.send('<script>alert("Please Select An Image ! "); window.location.href = "/upload"; </script>');
-      }
-  
-      return res.send('<script>alert("Prediction Saved."); window.location.href = "/upload"; </script>');
-      
-    } catch (error) {
-      console.log(error);
-  
-      return res.send('<script>alert("Error! Please Try Again."); window.location.href = "/upload"; </script>');
+  try {
+    await upload.uploadFilesMiddleware(req, res);
+    console.log(req.file);
+
+    if (req.file == undefined) {
+      return res.send(
+        '<script>alert("Please Select An Image ! "); window.location.href = "/upload"; </script>'
+      );
     }
-  };
+
+    return res.send(
+      '<script>alert("Prediction Saved."); window.location.href = "/upload"; </script>'
+    );
+  } catch (error) {
+    console.log(error);
+
+    return res.send(
+      '<script>alert("Error! Please Try Again."); window.location.href = "/upload"; </script>'
+    );
+  }
+};
 
 const getListFiles = async (req, res) => {
   const files = await upload.retrieveFiles();
@@ -60,7 +65,7 @@ const downloadImages = async (req, res) => {
 
 const deleteImage = (req, res) => {
   console.log("Image deleting", req.body.image);
-  upload.removeImage(req.body.image, req.body.prediction, (err, result) => {
+  upload.removeImage(req.body.image, (err, result) => {
     if (err) {
       res.json({ statusCode: 400, message: err });
     } else {
@@ -73,4 +78,10 @@ const deleteImage = (req, res) => {
   });
 };
 
-module.exports = {predictionUpload, uploadFiles, getListFiles, downloadImages, deleteImage };
+module.exports = {
+  predictionUpload,
+  uploadFiles,
+  getListFiles,
+  downloadImages,
+  deleteImage,
+};
