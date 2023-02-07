@@ -69,4 +69,9 @@ router.get("/upload", (req, res) => {
 
 router.post("/upload", controller.uploadController.uploadFiles);
 
+router.post("/prediction", (req, res) => {
+  console.log("router prediction:" + req)
+  controller.uploadController.predictionUpload(req, res)
+});
+
 module.exports = router;
