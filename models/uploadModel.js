@@ -11,8 +11,17 @@ setTimeout(() => {
   projectCollection = client.db().collection("Uploads");
 }, 2000);
 
+
+let data; 
+
+var predictionModel = (project) => {
+  //data = project //project.Material;
+  console.log(project)
+  //return data
+  }
+
 var storage = new GridFsStorage({
-  url: "mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority",
+  url:"mongodb+srv://canurecycleit:SIT725@cluster0.oqdjdva.mongodb.net/?retryWrites=true&w=majority",
   options: { useNewUrlParser: true, useUnifiedTopology: true },
   file: (req, file) => {
     const match = ["image/png", "image/jpeg"];
@@ -25,10 +34,10 @@ var storage = new GridFsStorage({
     return {
       bucketName: "photos",
       filename: `${Date.now()}-canUrecycleit-${file.originalname}`,
+      metadata: `${data}`
     };
-  },
+  }
 });
-
 const retrieveFiles = async () => {
   const images = client.db("test").collection("photos.files").find({});
   const predictionRecords = client.db("test").collection("Uploads").find({});
@@ -83,6 +92,7 @@ var uploadFiles = multer({ storage: storage }).single("file");
 var uploadFilesMiddleware = util.promisify(uploadFiles);
 
 module.exports = {
+  predictionModel,
   uploadFilesMiddleware,
   retrieveFiles,
   retrieveImages,
