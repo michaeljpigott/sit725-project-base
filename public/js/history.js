@@ -6,11 +6,11 @@ const getImages = () => {
   });
 };
 
-const removeImageFromApp = (imageId, predictionId) => {
+const removeImageFromApp = (imageId) => {
   console.log("sending ajax to route");
   $.ajax({
     url: "/api/history",
-    data: JSON.stringify({ image: imageId, prediction: predictionId }),
+    data: JSON.stringify({ image: imageId }),
     type: "DELETE",
     contentType: "application/json",
     success: (result) => {
@@ -22,7 +22,7 @@ const removeImageFromApp = (imageId, predictionId) => {
 
 const addImages = (data) => {
   data.forEach((image) => {
-    const imagePrediction = isRecyclable(image.predictionText);
+    const imagePrediction = isRecyclable(image.prediction);
     console.log(image.predictionText);
 
     $(".history-section").append(
@@ -58,7 +58,7 @@ const addImages = (data) => {
               <div>
                 <a class="btn delete-btn" data-record-id="${
                   image.id
-                }" data-prediction-id="${image.predictionId}" data-target="">
+                }" data-target="">
                   
                 Delete</a>
               </div>
@@ -72,10 +72,7 @@ const addImages = (data) => {
 const addDeleteFunction = () => {
   document.querySelectorAll(".delete-btn").forEach((button) => {
     button.addEventListener("click", (event) => {
-      removeImageFromApp(
-        event.target.getAttribute("data-record-id"),
-        event.target.getAttribute("data-prediction-id")
-      );
+      removeImageFromApp(event.target.getAttribute("data-record-id"));
     });
   });
 };
@@ -91,16 +88,19 @@ const formatDate = (imageDate) => {
 
 const isRecyclable = (imageType) => {
   switch (imageType) {
-    case "plastic":
+    case "Plastic":
       return { type: "Plastic", recyclable: true };
 
-    case "trash":
+    case "Trash":
       return { type: "Trash", recyclable: false };
 
-    case "metal":
+    case "Metal":
       return { type: "Metal", recyclable: true };
 
-    case "unknown":
+    case "Glass":
+      return { type: "Glass", recyclable: true };
+
+    case "undefined":
       return { type: "Unknown", recyclable: false };
   }
 };

@@ -39,7 +39,7 @@ var storage = new GridFsStorage({
 });
 const retrieveFiles = async () => {
   const images = client.db("test").collection("photos.files").find({});
-  const predictionRecords = client.db("test").collection("Uploads").find({});
+  // const predictionRecords = client.db("test").collection("Uploads").find({});
   let fileInfo = [];
 
   await images.forEach((doc) => {
@@ -48,20 +48,9 @@ const retrieveFiles = async () => {
       name: doc.filename,
       url: "http://localhost:3000/images/" + doc.filename,
       date: doc.uploadDate,
-      // predictionText: "unknown",
-      // predictionId: 0,
       prediction: doc.metadata,
     });
   });
-
-  // await predictionRecords.forEach((record) => {
-  //   fileInfo.forEach((file) => {
-  //     if (file.name == record.filename) {
-  //       file.predictionText = record.prediction;
-  //       file.predictionId = record._id;
-  //     }
-  //   });
-  // });
 
   return fileInfo;
 };
@@ -75,7 +64,7 @@ const retrieveImages = async () => {
   return bucket;
 };
 
-const removeImage = (imageId, predictionId, callback) => {
+const removeImage = (imageId, callback) => {
   client
     .db("test")
     .collection("photos.files")
