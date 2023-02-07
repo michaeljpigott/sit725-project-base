@@ -88,5 +88,5 @@ io.on("connection", (socket) => {
 });
 
 http.listen(port, () => {
-  console.log("App listening to http://localhost:" + port + "/index");
+  console.log("App listening to http://localhost:" + port);
 });
