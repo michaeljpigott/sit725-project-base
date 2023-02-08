@@ -1,10 +1,11 @@
+
 const classes = {0: "Cardboard", 1: "Glass", 2: "Metal", 3:"Paper", 4:"Plastic", 5: "Trash" }
 
 // 
 let imagesPreview = function(input, placeToInsertImagePreview) {
   if (input.files) {
-    let filesAmount = input.files.length;
-    for (i = 0; i < filesAmount; i++) { // change to only preview one image
+    //let filesAmount = input.files.length;
+    //for (i = 0; i < filesAmount; i++) { // change to only preview one image
       let reader = new FileReader();
       reader.onload = function(event) {
         $($.parseHTML('<img>'))
@@ -12,15 +13,15 @@ let imagesPreview = function(input, placeToInsertImagePreview) {
           .attr("id",'selected-image')
           .appendTo(placeToInsertImagePreview);
       };
-      reader.readAsDataURL(input.files[i]);
+      reader.readAsDataURL(input.files[0]);
     }
-  }
+  //}
 };
 
 // Loading model. Note: Server port needs to be opened in order to load model. 
 let model;
 (async function () {
-  try{model = await tf.loadLayersModel("http://127.0.0.1:5501/public/model_json/model.json");
+  try{model = await tf.loadLayersModel("http://127.0.0.1:5502/public/model_json/model.json");
   }
   catch (err){
     alert("Error: Model not loaded. Make sure server is live and reload.")
@@ -68,6 +69,7 @@ let tensorImage = function(){
         $("#prediction-list").append(`
         ${'Material: ' + p.className}
         ${'(' + p.probability.toFixed(3) * 100 +'% Accurate)'}
+        ${'<br>'+ 'Item '+ resultText(isRecyclable(p.className)) + ' be recycled'}
         `);
         
         prediction = p.className
@@ -76,39 +78,69 @@ let tensorImage = function(){
       return prediction
     }
     
+   // ${resultText(imagePrediction.recyclable)}
 
+   const isRecyclable = (imageType) => {
+    switch (imageType) {
+      case "Plastic":
+        return { type: "Plastic", recyclable: true };
+  
+      case "Trash":
+        return { type: "Trash", recyclable: false };
+  
+      case "Metal":
+        return { type: "Metal", recyclable: true };
+  
+      case "Glass":
+        return { type: "Glass", recyclable: true };
+  
+      case "Paper":
+        return { type: "Paper", recyclable: true };
+  
+      case "undefined":
+        return { type: "Unknown", recyclable: false };
+    }
+  };
+  
+  const resultText = (recyclable) => {
+    return recyclable ? "can" : "cannot";
+  };
 //ajax function...
 const predictionAjax = (project) => {
   $.ajax({
       url: '/prediction',
-      data: project,
+      data: JSON.stringify(project),
+      contentType: 'application/json',
       type: 'POST',
-      // success: (result) => {
-      //     alert(result.message);
-      //     //location.reload(); // it automatically reloads the page 
-      // }
   })
 }
 
+
 $(document).ready(function() {
+  prediction = null;
 
   $("#input-files").on("change",function () {
     imagesPreview(this,"div.preview-images")
   });
 
-  $("#submitted-button").click(async function() {
+  $("#predict-button").click(async function() {
     tensor = tensorImage()
     predictImage(tensor).then((result)=> {
-      prediction = result
-      resolvedPromise(prediction);
-      console.log(prediction )
+      resolvedPromise(result);
     })
 
     function resolvedPromise(prediction) {
       let formData = {};
       formData.Material = prediction;
-      console.log(formData)
-      predictionAjax(formData)
+      predictionAjax(formData);
+
+      
   };
+  var button = document.getElementById("predict-button");
+      this.parentNode.removeChild(button);
+    
+      document.getElementById("save-button").innerHTML = `
+      <button type="submit" class="btn btn-primary">Submit</button>`;
+
 })
 });

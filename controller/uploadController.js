@@ -2,14 +2,14 @@ const upload = require("../models/uploadModel");
 
 const predictionUpload = async (req, res) => {
   var newProject = req.body;
-  console.log(req.body);
   upload.predictionModel(newProject);
 };
 
 const uploadFiles = async (req, res) => {
-  try {
-    await upload.uploadFilesMiddleware(req, res);
-    console.log(req.file);
+  try{
+      await upload.uploadFilesMiddleware(req, res);
+      console.log(req.file);
+
 
     if (req.file == undefined) {
       return res.send(
