@@ -77,6 +77,7 @@ router.post("/login", async (req, res, next) => {
     if (data) {
       const cmp = await bcrypt.compare(req.body.password, data.password);
       if (cmp) {
+        req.session.userId = data.unique_id;
         res.send({ Success: "Success!", userId: data.unique_id });
       } else {
         res.send({ Success: "Wrong username or password." });
