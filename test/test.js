@@ -1,6 +1,20 @@
 var expect = require("chai").expect; //chai is an assertion library https://www.youtube.com/watch?v=sPyb6QlgBaU
 var request = require("request");
 
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const { describe, it } = require('mocha');
+const http = require('../server.js');
+
+const should = chai.should();
+
+chai.use(chaiHttp);
+
+// Agent that will keep track of our cookies
+const agent = chai.request.agent(http);
+
+const User = require('../models/user');
+
 //Tests for location feature
 describe("Location page", function () {
   var url = "http://localhost:3000/location";
@@ -58,19 +72,6 @@ describe("User Dashboard", function () {
 });
 
 // test authentication 
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const { describe, it } = require('mocha');
-const http = require('../server.js');
-
-const should = chai.should();
-
-chai.use(chaiHttp);
-
-// Agent that will keep track of our cookies
-const agent = chai.request.agent(http);
-
-const User = require('../models/user');
 
 describe('User', function () {
     it('should not be able to login if they have not registered', function (done) {
