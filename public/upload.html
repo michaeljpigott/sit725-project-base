@@ -41,30 +41,30 @@
 
     <main class="with-nav">
       <div class="container">
-        <div class="row">
-            <div class="col s12">
-              <h6>Upload your image from your camera roll!</h6>
-            </div>
-          </div>
+        <div id = text>
+          <h6><b>Upload Images</b></h6>
+          <p>PNG and JPG files are accepted</p>
+        </div>
             <div class="col s12">
               <form class="mt-4"
                 action="/upload"
                 method="POST"
-                enctype="multipart/form-data"  
-                >          
-                <div class="form-group">
-                  <input
-                    type="file"
-                    name="file"
-                    id="input-files"
-                    class="form-control-file border"
-                  />
-                </div>
+                enctype="multipart/form-data"
+                >
+              <div class="form-group">
+                <input
+                  type="file"
+                  name="file"
+                  id="input-files"
+                  class="form-control-file border"
+                />
+              </div>
               <div class="preview-images"></div>
-          <ol id="prediction-list"></ol>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      <button id="submitted-button" class="btn btn-primary">Predict</button>
+              <ol id="prediction-list"></ol> 
+              <div id="save-button"></div>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              </form>
+        <button id="predict-button" class="btn btn-primary">Predict</button>
       </div>
     </main>
   

@@ -14,9 +14,9 @@ setTimeout(() => {
 let data;
 
 var predictionModel = (project) => {
-  //data = project //project.Material;
-  console.log(project);
-  //return data
+  data = project.Material;
+  console.log(data)
+  return data
 };
 
 var storage = new GridFsStorage({
