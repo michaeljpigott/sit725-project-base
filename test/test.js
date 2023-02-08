@@ -43,3 +43,41 @@ describe("Get history images", () => {
     });
   });
 });
+
+// Check User Dashboard Loads correctly 
+
+describe("User Dashboard", function () {
+  var url = 'http://localhost:3000/profile';
+  // first it function....
+  it("returns status 200 to check if page works", function (done) {
+      request(url, function (error, response) {
+          expect(response.statusCode).to.equal(200);
+          done();
+      });
+  });
+});
+
+// test authentication 
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const { describe, it } = require('mocha');
+const http = require('../server.js');
+
+const should = chai.should();
+
+chai.use(chaiHttp);
+
+// Agent that will keep track of our cookies
+const agent = chai.request.agent(http);
+
+const User = require('../models/user');
+
+describe('User', function () {
+    it('should not be able to login if they have not registered', function (done) {
+        agent.post('/login', { email: 'wrong@example.com', password: 'nope' }).end(function (err, res) {
+          res.should.have.status(200);
+          done();
+        });
+      });
+});
+
