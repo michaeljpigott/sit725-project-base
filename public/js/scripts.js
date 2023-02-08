@@ -76,6 +76,7 @@ const saveLocation = () => {
   let saveData;
   saveData = $("#council-name").text();
   console.log(saveData);
+  alert('Location Saved');
 };
 
 //calls the saveLocation function once the document has been loaded
