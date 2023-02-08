@@ -261,8 +261,9 @@ main#homepage .button#sign-up-button {
 }
 
 .plant2 {
-  background-image: url("/images/plant2.jpg") !important;
-  background-size: 120%;
+  background-image: url("/images/plant2.jpg");
+  background-size: cover;
+  min-height: 100vh;
   background-repeat: no-repeat;
 }
 
@@ -304,4 +305,44 @@ main#homepage .button#sign-up-button {
 
 #messages>li:nth-child(odd) {
   background: #efefef;
+}
+
+/*CSS for upload HTML*/
+
+#selected-image{  
+  max-height:210px;
+  height:auto;
+  width:auto;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+  padding:5px;
+}
+
+#save-button{
+  text-align: right;
+}
+
+/* #predict-button{
+  position:relative;
+  margin-bottom:30%;
+} */
+
+/* #preview { height: 270px; } */
+
+.mt-4 {
+  height : 250px;
+  padding: 1rem;
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+    0 5px 15px 0 rgba(221, 195, 195, 0.59);
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  margin-bottom: 20px;
+  margin-top: 10px
+}
+
+
+#prediction-list{
+  padding: 1rem
 }

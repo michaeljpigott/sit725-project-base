@@ -22,7 +22,8 @@ const removeImageFromApp = (imageId) => {
 
 const addImages = (data) => {
   data.forEach((image) => {
-    const imagePrediction = isRecyclable(image.prediction);
+    var imagePrediction = isRecyclable(image.prediction);
+    console.log(imagePrediction);
 
     $(".history-section").append(
       `<div class="row history-item">
@@ -98,6 +99,9 @@ const isRecyclable = (imageType) => {
 
     case "Glass":
       return { type: "Glass", recyclable: true };
+
+    case "Paper":
+      return { type: "Paper", recyclable: true };
 
     case "undefined":
       return { type: "Unknown", recyclable: false };
