@@ -10,6 +10,7 @@ The app is currently restricted to local government areas in metropolitan Melbou
 2. Clone this git repository
 3. run command npm install to install the dependencies.
 4. run command npm start to start the app.
+5. start server at port 5502 to load the prediction model.
 
 ## Testing
 
