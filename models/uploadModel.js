@@ -39,7 +39,6 @@ var storage = new GridFsStorage({
 });
 const retrieveFiles = async () => {
   const images = client.db("test").collection("photos.files").find({});
-  // const predictionRecords = client.db("test").collection("Uploads").find({});
   let fileInfo = [];
 
   await images.forEach((doc) => {
@@ -69,12 +68,6 @@ const removeImage = (imageId, callback) => {
     .db("test")
     .collection("photos.files")
     .deleteOne({ _id: new mongo.ObjectId(imageId) }, callback);
-  // if (predictionId != 0) {
-  //   client
-  //     .db("test")
-  //     .collection("Uploads")
-  //     .deleteOne({ _id: new mongo.ObjectId(predictionId) });
-  // }
 };
 
 var uploadFiles = multer({ storage: storage }).single("file");

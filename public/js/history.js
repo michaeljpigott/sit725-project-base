@@ -23,7 +23,6 @@ const removeImageFromApp = (imageId) => {
 const addImages = (data) => {
   data.forEach((image) => {
     const imagePrediction = isRecyclable(image.prediction);
-    console.log(image.predictionText);
 
     $(".history-section").append(
       `<div class="row history-item">
